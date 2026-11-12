@@ -1,0 +1,133 @@
+[
+  {
+    "competitor_id": "fb_arsenal",
+    "sport_id": 1,
+    "competitor_name": "Arsenal FC",
+    "rating_elo": 1860.0,
+    "xg_attack": 2.25,
+    "xg_defense": 0.85
+  },
+  {
+    "competitor_id": "fb_chelsea",
+    "sport_id": 1,
+    "competitor_name": "Chelsea FC",
+    "rating_elo": 1780.0,
+    "xg_attack": 1.70,
+    "xg_defense": 1.20
+  },
+  {
+    "competitor_id": "fb_real_madrid",
+    "sport_id": 1,
+    "competitor_name": "Real Madrid",
+    "rating_elo": 1910.0,
+    "xg_attack": 2.40,
+    "xg_defense": 0.90
+  },
+  {
+    "competitor_id": "fb_valencia",
+    "sport_id": 1,
+    "competitor_name": "Valencia CF",
+    "rating_elo": 1690.0,
+    "xg_attack": 1.25,
+    "xg_defense": 1.45
+  },
+  {
+    "competitor_id": "bb_boston_celtics",
+    "sport_id": 2,
+    "competitor_name": "Boston Celtics",
+    "rating_elo": 1780.0,
+    "pace": 100.5,
+    "ortg": 122.3,
+    "drtg": 110.1
+  },
+  {
+    "competitor_id": "bb_ny_knicks",
+    "sport_id": 2,
+    "competitor_name": "New York Knicks",
+    "rating_elo": 1660.0,
+    "pace": 96.0,
+    "ortg": 116.5,
+    "drtg": 114.2
+  },
+  {
+    "competitor_id": "bb_la_lakers",
+    "sport_id": 2,
+    "competitor_name": "Los Angeles Lakers",
+    "rating_elo": 1640.0,
+    "pace": 101.2,
+    "ortg": 115.0,
+    "drtg": 115.8
+  },
+  {
+    "competitor_id": "ten_alcaraz_c",
+    "sport_id": 3,
+    "competitor_name": "Carlos Alcaraz",
+    "rating_elo": 2120.0,
+    "serve_win_pct": 0.68,
+    "return_win_pct": 0.44
+  },
+  {
+    "competitor_id": "ten_sinner_j",
+    "sport_id": 3,
+    "competitor_name": "Jannik Sinner",
+    "rating_elo": 2150.0,
+    "serve_win_pct": 0.70,
+    "return_win_pct": 0.43
+  },
+  {
+    "competitor_id": "ten_swiatek_i",
+    "sport_id": 3,
+    "competitor_name": "Iga Świątek",
+    "rating_elo": 2180.0,
+    "serve_win_pct": 0.69,
+    "return_win_pct": 0.48
+  },
+  {
+    "competitor_id": "ten_sabalenka_a",
+    "sport_id": 3,
+    "competitor_name": "Aryna Sabalenka",
+    "rating_elo": 2130.0,
+    "serve_win_pct": 0.71,
+    "return_win_pct": 0.42
+  },
+  {
+    "competitor_id": "hk_edmonton_oilers",
+    "sport_id": 4,
+    "competitor_name": "Edmonton Oilers",
+    "rating_elo": 1680.0,
+    "xg_attack": 3.40,
+    "xg_defense": 2.90
+  },
+  {
+    "competitor_id": "hk_calgary_flames",
+    "sport_id": 4,
+    "competitor_name": "Calgary Flames",
+    "rating_elo": 1540.0,
+    "xg_attack": 2.70,
+    "xg_defense": 3.10
+  },
+  {
+    "competitor_id": "vb_zaksa",
+    "sport_id": 5,
+    "competitor_name": "Grupa Azoty ZAKSA",
+    "rating_elo": 1720.0
+  },
+  {
+    "competitor_id": "tt_novak_m",
+    "sport_id": 6,
+    "competitor_name": "Marek Novak",
+    "rating_elo": 1500.0,
+    "glicko_r": 1520.0,
+    "glicko_rd": 260.0,
+    "glicko_sigma": 0.095
+  },
+  {
+    "competitor_id": "tt_kowalski_j",
+    "sport_id": 6,
+    "competitor_name": "Jan Kowalski",
+    "rating_elo": 1580.0,
+    "glicko_r": 1590.0,
+    "glicko_rd": 110.0,
+    "glicko_sigma": 0.048
+  }
+]

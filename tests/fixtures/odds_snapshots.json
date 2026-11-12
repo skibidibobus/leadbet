@@ -1,0 +1,43 @@
+[
+  { "id": 1, "event_id": "ev_fb_ars_che", "bookmaker_key": "pinnacle", "market_key": "1x2", "outcome_key": "home_win", "odds_decimal": 1.75, "is_sharp_benchmark": true },
+  { "id": 2, "event_id": "ev_fb_ars_che", "bookmaker_key": "pinnacle", "market_key": "1x2", "outcome_key": "draw", "odds_decimal": 3.80, "is_sharp_benchmark": true },
+  { "id": 3, "event_id": "ev_fb_ars_che", "bookmaker_key": "pinnacle", "market_key": "1x2", "outcome_key": "away_win", "odds_decimal": 4.90, "is_sharp_benchmark": true },
+  { "id": 4, "event_id": "ev_fb_ars_che", "bookmaker_key": "betclic", "market_key": "1x2", "outcome_key": "home_win", "odds_decimal": 1.70, "is_sharp_benchmark": false },
+  { "id": 5, "event_id": "ev_fb_ars_che", "bookmaker_key": "betclic", "market_key": "1x2", "outcome_key": "draw", "odds_decimal": 3.65, "is_sharp_benchmark": false },
+  { "id": 6, "event_id": "ev_fb_ars_che", "bookmaker_key": "fortuna", "market_key": "1x2", "outcome_key": "home_win", "odds_decimal": 1.72, "is_sharp_benchmark": false },
+  { "id": 7, "event_id": "ev_fb_ars_che", "bookmaker_key": "sts", "market_key": "1x2", "outcome_key": "home_win", "odds_decimal": 1.68, "is_sharp_benchmark": false },
+  { "id": 8, "event_id": "ev_fb_ars_che", "bookmaker_key": "superbet", "market_key": "1x2", "outcome_key": "home_win", "odds_decimal": 1.74, "is_sharp_benchmark": false },
+  { "id": 9, "event_id": "ev_fb_ars_che", "bookmaker_key": "pinnacle", "market_key": "over_under_2_5", "outcome_key": "over", "odds_decimal": 1.85, "is_sharp_benchmark": true },
+  { "id": 10, "event_id": "ev_fb_ars_che", "bookmaker_key": "betclic", "market_key": "over_under_2_5", "outcome_key": "over", "odds_decimal": 1.80, "is_sharp_benchmark": false },
+
+  { "id": 11, "event_id": "ev_fb_rma_val", "bookmaker_key": "pinnacle", "market_key": "1x2", "outcome_key": "home_win", "odds_decimal": 1.35, "is_sharp_benchmark": true },
+  { "id": 12, "event_id": "ev_fb_rma_val", "bookmaker_key": "pinnacle", "market_key": "1x2", "outcome_key": "draw", "odds_decimal": 5.40, "is_sharp_benchmark": true },
+  { "id": 13, "event_id": "ev_fb_rma_val", "bookmaker_key": "pinnacle", "market_key": "1x2", "outcome_key": "away_win", "odds_decimal": 9.20, "is_sharp_benchmark": true },
+  { "id": 14, "event_id": "ev_fb_rma_val", "bookmaker_key": "betclic", "market_key": "1x2", "outcome_key": "home_win", "odds_decimal": 1.33, "is_sharp_benchmark": false },
+  { "id": 15, "event_id": "ev_fb_rma_val", "bookmaker_key": "fortuna", "market_key": "1x2", "outcome_key": "home_win", "odds_decimal": 1.34, "is_sharp_benchmark": false },
+  { "id": 16, "event_id": "ev_fb_rma_val", "bookmaker_key": "sts", "market_key": "1x2", "outcome_key": "home_win", "odds_decimal": 1.31, "is_sharp_benchmark": false },
+  { "id": 17, "event_id": "ev_fb_rma_val", "bookmaker_key": "superbet", "market_key": "1x2", "outcome_key": "home_win", "odds_decimal": 1.35, "is_sharp_benchmark": false },
+
+  { "id": 18, "event_id": "ev_bb_bos_nyk", "bookmaker_key": "pinnacle", "market_key": "moneyline", "outcome_key": "home_win", "odds_decimal": 1.42, "is_sharp_benchmark": true },
+  { "id": 19, "event_id": "ev_bb_bos_nyk", "bookmaker_key": "pinnacle", "market_key": "moneyline", "outcome_key": "away_win", "odds_decimal": 2.95, "is_sharp_benchmark": true },
+  { "id": 20, "event_id": "ev_bb_bos_nyk", "bookmaker_key": "betclic", "market_key": "moneyline", "outcome_key": "home_win", "odds_decimal": 1.40, "is_sharp_benchmark": false },
+  { "id": 21, "event_id": "ev_bb_bos_nyk", "bookmaker_key": "sts", "market_key": "moneyline", "outcome_key": "home_win", "odds_decimal": 1.38, "is_sharp_benchmark": false },
+  { "id": 22, "event_id": "ev_bb_bos_nyk", "bookmaker_key": "fortuna", "market_key": "spread_m5_5", "outcome_key": "home_win", "odds_decimal": 1.82, "is_sharp_benchmark": false },
+
+  { "id": 23, "event_id": "ev_ten_alc_sin", "bookmaker_key": "pinnacle", "market_key": "match_winner", "outcome_key": "home_win", "odds_decimal": 1.95, "is_sharp_benchmark": true },
+  { "id": 24, "event_id": "ev_ten_alc_sin", "bookmaker_key": "pinnacle", "market_key": "match_winner", "outcome_key": "away_win", "odds_decimal": 1.95, "is_sharp_benchmark": true },
+  { "id": 25, "event_id": "ev_ten_alc_sin", "bookmaker_key": "betclic", "market_key": "match_winner", "outcome_key": "home_win", "odds_decimal": 1.88, "is_sharp_benchmark": false },
+  { "id": 26, "event_id": "ev_ten_alc_sin", "bookmaker_key": "betclic", "market_key": "match_winner", "outcome_key": "away_win", "odds_decimal": 1.88, "is_sharp_benchmark": false },
+  { "id": 27, "event_id": "ev_ten_alc_sin", "bookmaker_key": "fortuna", "market_key": "match_winner", "outcome_key": "home_win", "odds_decimal": 1.89, "is_sharp_benchmark": false },
+
+  { "id": 28, "event_id": "ev_ten_swi_sab", "bookmaker_key": "pinnacle", "market_key": "match_winner", "outcome_key": "home_win", "odds_decimal": 1.48, "is_sharp_benchmark": true },
+  { "id": 29, "event_id": "ev_ten_swi_sab", "bookmaker_key": "pinnacle", "market_key": "match_winner", "outcome_key": "away_win", "odds_decimal": 2.75, "is_sharp_benchmark": true },
+  { "id": 30, "event_id": "ev_ten_swi_sab", "bookmaker_key": "betclic", "market_key": "match_winner", "outcome_key": "home_win", "odds_decimal": 1.45, "is_sharp_benchmark": false },
+  { "id": 31, "event_id": "ev_ten_swi_sab", "bookmaker_key": "sts", "market_key": "match_winner", "outcome_key": "home_win", "odds_decimal": 1.44, "is_sharp_benchmark": false },
+
+  { "id": 32, "event_id": "ev_hk_edm_cgy", "bookmaker_key": "pinnacle", "market_key": "regulation_1x2", "outcome_key": "home_win", "odds_decimal": 1.90, "is_sharp_benchmark": true },
+  { "id": 33, "event_id": "ev_hk_edm_cgy", "bookmaker_key": "pinnacle", "market_key": "regulation_1x2", "outcome_key": "draw", "odds_decimal": 4.25, "is_sharp_benchmark": true },
+  { "id": 34, "event_id": "ev_hk_edm_cgy", "bookmaker_key": "betclic", "market_key": "regulation_1x2", "outcome_key": "home_win", "odds_decimal": 1.85, "is_sharp_benchmark": false },
+
+  { "id": 35, "event_id": "ev_tt_nov_kow", "bookmaker_key": "pinnacle", "market_key": "match_winner", "outcome_key": "home_win", "odds_decimal": 1.62, "is_sharp_benchmark": true }
+]

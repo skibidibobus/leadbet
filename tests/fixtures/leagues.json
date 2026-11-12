@@ -1,0 +1,72 @@
+[
+  {
+    "id": 1,
+    "sport_id": 1,
+    "name": "Premier League",
+    "country": "England",
+    "tier_weight": 1.00
+  },
+  {
+    "id": 2,
+    "sport_id": 1,
+    "name": "La Liga",
+    "country": "Spain",
+    "tier_weight": 0.95
+  },
+  {
+    "id": 3,
+    "sport_id": 1,
+    "name": "Ekstraklasa",
+    "country": "Poland",
+    "tier_weight": 0.85
+  },
+  {
+    "id": 4,
+    "sport_id": 2,
+    "name": "NBA",
+    "country": "USA",
+    "tier_weight": 1.00
+  },
+  {
+    "id": 5,
+    "sport_id": 2,
+    "name": "EuroLeague",
+    "country": "Europe",
+    "tier_weight": 0.90
+  },
+  {
+    "id": 6,
+    "sport_id": 3,
+    "name": "ATP Tour",
+    "country": "International",
+    "tier_weight": 1.00
+  },
+  {
+    "id": 7,
+    "sport_id": 3,
+    "name": "WTA Tour",
+    "country": "International",
+    "tier_weight": 0.95
+  },
+  {
+    "id": 8,
+    "sport_id": 4,
+    "name": "NHL",
+    "country": "USA/Canada",
+    "tier_weight": 1.00
+  },
+  {
+    "id": 9,
+    "sport_id": 5,
+    "name": "PlusLiga",
+    "country": "Poland",
+    "tier_weight": 0.88
+  },
+  {
+    "id": 10,
+    "sport_id": 6,
+    "name": "TT Elite Series",
+    "country": "Poland/Czechia",
+    "tier_weight": 0.70
+  }
+]

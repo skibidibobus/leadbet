@@ -1,0 +1,42 @@
+{
+  "name": "@quantkupon/web",
+  "version": "0.1.0",
+  "private": true,
+  "description": "QUANTKUPON Next.js 15+ App Router Frontend",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "type-check": "tsc --noEmit",
+    "pages:build": "npx @cloudflare/next-on-pages",
+    "pages:dev": "npx wrangler pages dev .vercel/output/static --compatibility-flag=nodejs_compat",
+    "pages:deploy": "npx wrangler pages deploy .vercel/output/static",
+    "test": "echo \"Frontend tests placeholder\""
+  },
+  "dependencies": {
+    "@neondatabase/serverless": "^0.10.4",
+    "@quantkupon/contracts": "workspace:*",
+    "clsx": "^2.1.1",
+    "lucide-react": "^0.475.0",
+    "next": "^15.1.7",
+    "next-auth": "^5.0.0-beta.25",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "tailwind-merge": "^3.0.1"
+  },
+  "devDependencies": {
+    "@cloudflare/next-on-pages": "^1.13.7",
+    "@cloudflare/workers-types": "^4.20250214.0",
+    "@types/node": "^20.17.19",
+    "@types/react": "^19.0.8",
+    "@types/react-dom": "^19.0.3",
+    "autoprefixer": "^10.4.20",
+    "eslint": "^9.20.1",
+    "eslint-config-next": "^15.1.7",
+    "postcss": "^8.5.2",
+    "tailwindcss": "^3.4.17",
+    "typescript": "^5.7.3",
+    "wrangler": "^3.109.1"
+  }
+}

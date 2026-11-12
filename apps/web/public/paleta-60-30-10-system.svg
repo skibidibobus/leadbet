@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" width="1200" height="720" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
+  <defs>
+    <pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse">
+      <path d="M 24 0 L 0 0 0 24" fill="none" stroke="#1E293B" stroke-width="0.6" stroke-opacity="0.45"/>
+    </pattern>
+  </defs>
+
+  <!-- 60% Dominant Obsidian Canvas -->
+  <rect width="1200" height="720" fill="#0B0F19"/>
+  <rect width="1200" height="720" fill="url(#grid)"/>
+
+  <!-- Header -->
+  <text x="56" y="64" fill="#F8FAFC" font-size="26" font-weight="700" letter-spacing="-0.02em">SYSTEM KOLORYSTYCZNY 60-30-10 — „QUANT SLATE &amp; EMERALD TERMINAL”</text>
+  <text x="56" y="94" fill="#94A3B8" font-size="14">Specyfikacja wizualna platformy analiz kursów bukmacherskich (Piłka nożna → Tenis stołowy)</text>
+
+  <!-- 60-30-10 Proportion Bar -->
+  <rect x="56" y="122" width="1088" height="76" rx="12" fill="#131C2E" stroke="#23324D" stroke-width="1"/>
+  <!-- 60% block -->
+  <rect x="64" y="130" width="643" height="60" rx="8" fill="#0B0F19" stroke="#23324D" stroke-width="1"/>
+  <text x="84" y="157" fill="#F8FAFC" font-size="15" font-weight="700">60% DOMINUJĄCY (Tło &amp; Przestrzeń Robocza)</text>
+  <text x="84" y="177" fill="#94A3B8" font-size="12" font-family="JetBrains Mono, monospace">#0B0F19 / #0F1624 — Zero zmęczenia wzroku, wysokie tło dla tabel</text>
+
+  <!-- 30% block -->
+  <rect x="715" y="130" width="321" height="60" rx="8" fill="#131C2E" stroke="#047857" stroke-width="1.5"/>
+  <rect x="715" y="130" width="10" height="60" rx="4" fill="#0D9488"/>
+  <text x="737" y="157" fill="#F8FAFC" font-size="14" font-weight="700">30% STRUKTURALNY</text>
+  <text x="737" y="177" fill="#CBD5E1" font-size="11.5" font-family="JetBrains Mono, monospace">#131C2E / #1B263B / #0D9488</text>
+
+  <!-- 10% block -->
+  <rect x="1044" y="130" width="92" height="60" rx="8" fill="#10B981"/>
+  <rect x="1102" y="130" width="34" height="60" rx="8" fill="#F59E0B"/>
+  <text x="1053" y="165" fill="#0B0F19" font-size="14" font-weight="800">10%</text>
+
+  <!-- Section 1: 60% Swatches -->
+  <rect x="56" y="224" width="348" height="288" rx="14" fill="#131C2E" stroke="#23324D" stroke-width="1"/>
+  <text x="76" y="256" fill="#F8FAFC" font-size="16" font-weight="700">60% — Dominująca Baza (Slate)</text>
+  <text x="76" y="276" fill="#94A3B8" font-size="12">Tło aplikacji, marginesy, obszary oddechu</text>
+
+  <rect x="76" y="296" width="56" height="44" rx="8" fill="#0B0F19" stroke="#334155" stroke-width="1"/>
+  <text x="146" y="314" fill="#F8FAFC" font-size="13" font-weight="600">Obsidian Canvas</text>
+  <text x="146" y="332" fill="#94A3B8" font-size="12" font-family="JetBrains Mono, monospace">#0B0F19 • RGB(11, 15, 25)</text>
+
+  <rect x="76" y="356" width="56" height="44" rx="8" fill="#0F1624" stroke="#334155" stroke-width="1"/>
+  <text x="146" y="374" fill="#F8FAFC" font-size="13" font-weight="600">Midnight Grid</text>
+  <text x="146" y="392" fill="#94A3B8" font-size="12" font-family="JetBrains Mono, monospace">#0F1624 • RGB(15, 22, 36)</text>
+
+  <rect x="76" y="416" width="56" height="44" rx="8" fill="#F8FAFC"/>
+  <text x="146" y="434" fill="#F8FAFC" font-size="13" font-weight="600">Tekst Główny (Contrast &gt;15:1)</text>
+  <text x="146" y="452" fill="#94A3B8" font-size="12" font-family="JetBrains Mono, monospace">#F8FAFC • Sekundarny: #94A3B8</text>
+  <text x="76" y="492" fill="#64748B" font-size="11.5">Brak czystej czerni #000000 — zero halacji tekstu</text>
+
+  <!-- Section 2: 30% Swatches -->
+  <rect x="426" y="224" width="348" height="288" rx="14" fill="#131C2E" stroke="#23324D" stroke-width="1"/>
+  <text x="446" y="256" fill="#F8FAFC" font-size="16" font-weight="700">30% — Struktura &amp; Kontenery</text>
+  <text x="446" y="276" fill="#94A3B8" font-size="12">Karty meczowe, panele kuponu, osie wykresów</text>
+
+  <rect x="446" y="296" width="56" height="44" rx="8" fill="#131C2E" stroke="#23324D" stroke-width="1.5"/>
+  <text x="516" y="314" fill="#F8FAFC" font-size="13" font-weight="600">Card Slate Surface</text>
+  <text x="516" y="332" fill="#94A3B8" font-size="12" font-family="JetBrains Mono, monospace">#131C2E • Obramowanie: #23324D</text>
+
+  <rect x="446" y="356" width="56" height="44" rx="8" fill="#1B263B" stroke="#334155" stroke-width="1"/>
+  <text x="516" y="374" fill="#F8FAFC" font-size="13" font-weight="600">Elevated Drawer / Hover</text>
+  <text x="516" y="392" fill="#94A3B8" font-size="12" font-family="JetBrains Mono, monospace">#1B263B • RGB(27, 38, 59)</text>
+
+  <rect x="446" y="416" width="56" height="44" rx="8" fill="#047857"/>
+  <text x="516" y="434" fill="#F8FAFC" font-size="13" font-weight="600">Structural Quant Teal</text>
+  <text x="516" y="452" fill="#94A3B8" font-size="12" font-family="JetBrains Mono, monospace">#047857 / #0D9488 • Wykresy i strefy</text>
+  <text x="446" y="492" fill="#64748B" font-size="11.5">Hierarchia oparta o elewację, nie ciężkie cienie</text>
+
+  <!-- Section 3: 10% Swatches -->
+  <rect x="796" y="224" width="348" height="288" rx="14" fill="#131C2E" stroke="#23324D" stroke-width="1"/>
+  <text x="816" y="256" fill="#F8FAFC" font-size="16" font-weight="700">10% — Akcenty Precyzyjne</text>
+  <text x="816" y="276" fill="#94A3B8" font-size="12">Dodatnie EV, aktywne kategorie, główne CTA</text>
+
+  <rect x="816" y="296" width="56" height="44" rx="8" fill="#10B981"/>
+  <text x="886" y="314" fill="#F8FAFC" font-size="13" font-weight="600">Signal Emerald (+EV / Szansa)</text>
+  <text x="886" y="332" fill="#94A3B8" font-size="12" font-family="JetBrains Mono, monospace">#10B981 • Główny akcent analityczny</text>
+
+  <rect x="816" y="356" width="56" height="44" rx="8" fill="#F59E0B"/>
+  <text x="886" y="374" fill="#F8FAFC" font-size="13" font-weight="600">Alpha Amber (CTA / Top Edge)</text>
+  <text x="886" y="392" fill="#94A3B8" font-size="12" font-family="JetBrains Mono, monospace">#F59E0B • Przycisk „Generuj Kupon”</text>
+
+  <rect x="816" y="416" width="56" height="44" rx="8" fill="#F87171"/>
+  <text x="886" y="434" fill="#F8FAFC" font-size="13" font-weight="600">Semantyczny Alert (-EV / Vig)</text>
+  <text x="886" y="452" fill="#94A3B8" font-size="12" font-family="JetBrains Mono, monospace">#F87171 • Zawsze z ikoną ▲/▼ (WCAG)</text>
+  <text x="816" y="492" fill="#64748B" font-size="11.5">Akcent &lt;10% pikseli chroni przed „efektem kasyna”</text>
+
+  <!-- Bottom Typography & Rules Bar -->
+  <rect x="56" y="536" width="1088" height="132" rx="14" fill="#131C2E" stroke="#23324D" stroke-width="1"/>
+  <text x="78" y="568" fill="#F8FAFC" font-size="15" font-weight="700">ZASADY TYPOGRAFII I DOSTĘPNOŚCI (WCAG 2.2 AA/AAA)</text>
+  <text x="78" y="596" fill="#CBD5E1" font-size="13">1. Inter / Plus Jakarta Sans dla nagłówków i etykiet kategorii (Piłka nożna, Koszykówka, Siatkówka, Tenis, Hokej, Tenis stołowy).</text>
+  <text x="78" y="620" fill="#CBD5E1" font-size="13">2. JetBrains Mono z font-variant-numeric: tabular-nums dla wszystkich kursów (1.92), prawdopodobieństw (54.8%) i EV (+4.3%).</text>
+  <text x="78" y="644" fill="#10B981" font-size="13" font-weight="600">3. Zasada „Never Color Alone”: każda wartość EV lub zmiana kursu ma znak (+/-), strzałkę (▲/▼) lub etykietę tekstową.</text>
+</svg>

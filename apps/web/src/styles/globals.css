@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #0B0F19;
+  --foreground: #F8FAFC;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), Inter, system-ui, sans-serif;
+  min-height: 100vh;
+}
+
+/* Strict vertical column alignment for odds, payouts, and probabilities */
+.font-tabular {
+  font-variant-numeric: tabular-nums;
+}

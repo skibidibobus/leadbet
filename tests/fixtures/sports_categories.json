@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "slug": "football",
+    "name_pl": "Piłka nożna",
+    "is_enabled_v1": true,
+    "volatility_tier": "standard",
+    "active_model": "dixon_coles_xg"
+  },
+  {
+    "id": 2,
+    "slug": "basketball",
+    "name_pl": "Koszykówka",
+    "is_enabled_v1": true,
+    "volatility_tier": "standard",
+    "active_model": "pace_possession"
+  },
+  {
+    "id": 3,
+    "slug": "tennis",
+    "name_pl": "Tenis ziemny",
+    "is_enabled_v1": true,
+    "volatility_tier": "standard",
+    "active_model": "markov_surface_elo"
+  },
+  {
+    "id": 4,
+    "slug": "hockey",
+    "name_pl": "Hokej na lodzie",
+    "is_enabled_v1": true,
+    "volatility_tier": "standard",
+    "active_model": "skellam_empty_net"
+  },
+  {
+    "id": 5,
+    "slug": "volleyball",
+    "name_pl": "Siatkówka",
+    "is_enabled_v1": false,
+    "volatility_tier": "low",
+    "active_model": "markov_sets_25_15"
+  },
+  {
+    "id": 6,
+    "slug": "table_tennis",
+    "name_pl": "Tenis stołowy",
+    "is_enabled_v1": false,
+    "volatility_tier": "high",
+    "active_model": "glicko2_volatility_guard"
+  }
+]

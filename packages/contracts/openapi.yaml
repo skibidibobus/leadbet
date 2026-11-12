@@ -1,0 +1,1915 @@
+openapi: 3.1.0
+info:
+  title: QUANTKUPON API
+  version: 1.0.0
+  description: >
+    Matematyczna platforma analiz sportowych i generator kuponów bukmacherskich QUANTKUPON.
+    Udostępnia predykcje modeli ilościowych (Dixon-Coles xG, Pace, Markov, Skellam), de-vigging,
+    kalkulator podatkowy (12% turnover tax, promocje 0%, PIT 10% powyżej 2280 PLN) oraz solver AKO.
+  license:
+    name: MIT
+    identifier: MIT
+servers:
+  - url: https://api.quantkupon.pl
+    description: Serwer produkcyjny API
+  - url: http://127.0.0.1:8000
+    description: Lokalny serwer deweloperski FastAPI
+  - url: /
+    description: Relatywny endpoint (reverse proxy / monorepo)
+
+paths:
+  /api/v1/categories:
+    get:
+      summary: Lista kategorii sportowych
+      description: Zwraca listę kategorii sportowych z informacją o aktywności (v1 vs Faza 2), modelach matematycznych i liczbie nadchodzących zdarzeń.
+      operationId: getCategories
+      security: []
+      parameters:
+        - name: enabled_only
+          in: query
+          description: Filtruj wyłącznie aktywne sporty w wersji produkcyjnej v1
+          required: false
+          schema:
+            type: boolean
+            default: false
+      responses:
+        '200':
+          description: Pomyślnie pobrano listę kategorii
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CategoryListResponse'
+        '400':
+          $ref: '#/components/responses/BadRequestError'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+
+  /api/v1/events:
+    get:
+      summary: Filtrowana lista nadchodzących meczów
+      description: Zwraca listę pre-match zdarzeń z kursami bukmacherskimi, prawdopodobieństwami modeli oraz wyliczonym Expected Value (EV).
+      operationId: getEvents
+      security: []
+      parameters:
+        - name: sport
+          in: query
+          description: Slug dyscypliny (football, basketball, tennis, hockey)
+          required: false
+          schema:
+            type: string
+            enum: [football, basketball, tennis, hockey, volleyball, table_tennis]
+        - name: league_id
+          in: query
+          description: Identyfikator ligi/rozgrywek
+          required: false
+          schema:
+            type: integer
+        - name: market
+          in: query
+          description: Klucz rynku zakładów (1x2, spread, totals_2_5, moneyline)
+          required: false
+          schema:
+            type: string
+        - name: min_ev
+          in: query
+          description: Minimalna wartość Net EV (np. 0.00 dla wartościowych typów +EV)
+          required: false
+          schema:
+            type: number
+        - name: status
+          in: query
+          description: Status zdarzenia
+          required: false
+          schema:
+            type: string
+            enum: [pre_match, live, finished, cancelled]
+            default: pre_match
+        - name: limit
+          in: query
+          description: Liczba zwracanych rekordów
+          required: false
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 100
+            default: 50
+        - name: offset
+          in: query
+          description: Przesunięcie stronicowania
+          required: false
+          schema:
+            type: integer
+            minimum: 0
+            default: 0
+      responses:
+        '200':
+          description: Lista zdarzeń sportowych
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EventListResponse'
+        '400':
+          $ref: '#/components/responses/BadRequestError'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+
+  /api/v1/events/{id}/breakdown:
+    get:
+      summary: Szczegółowy matematyczny breakdown meczu
+      description: Zwraca pełną dekompozycję matematyczną (macierz Poissona 8x8, stany łańcucha Markowa, parametry Skellama, metryki Elo/xG/Pace, czynniki faktograficzne i wagi Bayesian fusion).
+      operationId: getEventBreakdown
+      security: []
+      parameters:
+        - name: id
+          in: path
+          description: Identyfikator zdarzenia (np. ft_pl_20261112_ars_che)
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Szczegółowa dekompozycja matematyczna
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EventBreakdownResponse'
+        '404':
+          $ref: '#/components/responses/NotFoundError'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+
+  /api/v1/slips/generate:
+    post:
+      summary: Generowanie optymalnych kuponów AKO
+      description: Kombinatoryczny algorytm wyszukiwania maksymalizujący prawdopodobieństwo P(kuponu) w zadanym przedziale kursowym z uwzględnieniem Anti-Correlation Guard, profilu podatkowego (0.88x lub promocja 0%) oraz progu 10% PIT (2280 PLN).
+      operationId: generateSlips
+      security: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SlipGenerateRequest'
+      responses:
+        '200':
+          description: Wygenerowano zoptymalizowane propozycje kuponów
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SlipGenerateResponse'
+        '400':
+          $ref: '#/components/responses/BadRequestError'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+
+  /api/v1/slips/evaluate:
+    post:
+      summary: Natychmiastowe przeliczenie kuponu i nadpisanie kursów bukmacherskich
+      description: Przelicza na żywo kursy całkowite, prawdopodobieństwo łączne, podatek od gier, podatek PIT 10% (>2280 PLN), Net EV oraz ułamek Kelly'ego przy zmianie stawki lub ręcznym nadpisaniu kursów (1-click override).
+      operationId: evaluateSlip
+      security: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SlipEvaluateRequest'
+      responses:
+        '200':
+          description: Wynik dynamicznego przeliczenia kuponu
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SlipEvaluateResponse'
+        '400':
+          $ref: '#/components/responses/BadRequestError'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+
+  /api/v1/slips/saved:
+    get:
+      summary: Pobierz zapisane kupony użytkownika
+      description: Zwraca listę kuponów zapisanych na koncie uwierzytelnionego użytkownika.
+      operationId: getSavedSlips
+      security:
+        - BearerAuth: []
+        - SessionCookie: []
+      parameters:
+        - name: limit
+          in: query
+          required: false
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 100
+            default: 20
+        - name: offset
+          in: query
+          required: false
+          schema:
+            type: integer
+            minimum: 0
+            default: 0
+      responses:
+        '200':
+          description: Lista zapisanych kuponów
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SavedSlipListResponse'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+
+    post:
+      summary: Zapisz kupon na koncie użytkownika
+      description: Utrwala skonfigurowany lub wygenerowany kupon w bazie Neon PostgreSQL dla zalogowanego gracza.
+      operationId: saveSlip
+      security:
+        - BearerAuth: []
+        - SessionCookie: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SaveSlipRequest'
+      responses:
+        '201':
+          description: Pomyślnie zapisano kupon
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SavedSlipResponse'
+        '400':
+          $ref: '#/components/responses/BadRequestError'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+
+  /api/v1/slips/saved/{id}:
+    delete:
+      summary: Usuń zapisany kupon
+      description: Usuwa trwale wskazany kupon z konta użytkownika.
+      operationId: deleteSavedSlip
+      security:
+        - BearerAuth: []
+        - SessionCookie: []
+      parameters:
+        - name: id
+          in: path
+          description: Identyfikator UUID zapisanego kuponu
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: Kupon został usunięty
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StandardSuccessResponse'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+        '404':
+          $ref: '#/components/responses/NotFoundError'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+
+  /api/v1/calibration/metrics:
+    get:
+      summary: Metryki kalibracji modeli i audytu ilościowego
+      description: Zwraca metryki wiarygodności modeli (Brier Score, Brier Skill Score, Log-Loss), Closing Line Value (CLV outperformance wobec Pinnacle) oraz koszyki diagramu niezawodności.
+      operationId: getCalibrationMetrics
+      security: []
+      parameters:
+        - name: sport
+          in: query
+          description: Opcjonalne filtrowanie po dyscyplinie
+          required: false
+          schema:
+            type: string
+            enum: [football, basketball, tennis, hockey]
+        - name: time_horizon
+          in: query
+          description: Horyzont czasowy audytu
+          required: false
+          schema:
+            type: string
+            enum: [30d, 90d, 180d, 1y, all]
+            default: 90d
+      responses:
+        '200':
+          description: Metryki kalibracyjne modeli
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CalibrationMetricsResponse'
+        '400':
+          $ref: '#/components/responses/BadRequestError'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: Standardowy nagłówek uwierzytelniania Bearer token
+    SessionCookie:
+      type: apiKey
+      in: cookie
+      name: authjs.session-token
+      description: Ciasteczko sesyjne Auth.js
+
+  responses:
+    BadRequestError:
+      description: Błąd walidacji żądania lub niespełnione warunki wstępne
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    UnauthorizedError:
+      description: Brak uwierzytelnienia lub nieważny token sesji
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    NotFoundError:
+      description: Wskazany zasób nie został odnaleziony
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    InternalServerError:
+      description: Nieoczekiwany błąd wewnętrzny serwera
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+
+  schemas:
+    # --- Category Schemas ---
+    CategoryListResponse:
+      type: object
+      required:
+        - categories
+        - total
+      properties:
+        categories:
+          type: array
+          items:
+            $ref: '#/components/schemas/SportCategory'
+        total:
+          type: integer
+          example: 6
+
+    SportCategory:
+      type: object
+      required:
+        - id
+        - slug
+        - name_pl
+        - is_enabled_v1
+        - volatility_tier
+        - active_model
+        - fixtures_count
+        - updated_at
+      properties:
+        id:
+          type: integer
+          example: 1
+        slug:
+          type: string
+          enum: [football, basketball, tennis, hockey, volleyball, table_tennis]
+          example: football
+        name_pl:
+          type: string
+          example: Piłka nożna
+        is_enabled_v1:
+          type: boolean
+          description: Flaga aktywności w wersji v1 (true dla football, basketball, tennis, hockey)
+          example: true
+        volatility_tier:
+          type: string
+          enum: [low, standard, high]
+          example: standard
+        active_model:
+          type: string
+          example: dixon_coles_xg_v1
+        fixtures_count:
+          type: integer
+          example: 42
+        updated_at:
+          type: string
+          format: date-time
+
+    # --- Event Schemas ---
+    EventListResponse:
+      type: object
+      required:
+        - events
+        - total
+        - limit
+        - offset
+      properties:
+        events:
+          type: array
+          items:
+            $ref: '#/components/schemas/EventSummary'
+        total:
+          type: integer
+          example: 120
+        limit:
+          type: integer
+          example: 50
+        offset:
+          type: integer
+          example: 0
+
+    EventSummary:
+      type: object
+      required:
+        - id
+        - sport_slug
+        - sport_name_pl
+        - league_id
+        - league_name
+        - home_team
+        - away_team
+        - start_time_utc
+        - status
+        - primary_market
+        - max_ev_net
+        - is_value_bet
+      properties:
+        id:
+          type: string
+          example: ft_pl_20261112_ars_che
+        sport_slug:
+          type: string
+          example: football
+        sport_name_pl:
+          type: string
+          example: Piłka nożna
+        league_id:
+          type: integer
+          example: 101
+        league_name:
+          type: string
+          example: Premier League
+        league_country:
+          type: [string, "null"]
+          example: Anglia
+        home_team:
+          type: [string, "null"]
+          example: Arsenal FC
+        away_team:
+          type: string
+          example: Chelsea FC
+        start_time_utc:
+          type: string
+          format: date-time
+          example: '2026-11-14T17:30:00Z'
+        status:
+          type: string
+          enum: [pre_match, live, finished, cancelled]
+          example: pre_match
+        surface_or_format:
+          type: [string, "null"]
+          example: Grass
+        primary_market:
+          $ref: '#/components/schemas/MarketSummary'
+        all_markets_count:
+          type: integer
+          example: 12
+        max_ev_net:
+          type: number
+          format: double
+          description: Najwyższa wartość Net EV spośród typów na ten mecz
+          example: 0.0583
+        is_value_bet:
+          type: boolean
+          description: Flaga czy zdarzenie zawiera co najmniej 1 selekcję o dodatnim Net EV
+          example: true
+
+    MarketSummary:
+      type: object
+      required:
+        - market_key
+        - market_label
+        - outcomes
+      properties:
+        market_key:
+          type: [string, "null"]
+          example: 1x2
+        market_label:
+          type: string
+          example: Wynik meczu (1X2)
+        outcomes:
+          type: array
+          items:
+            $ref: '#/components/schemas/MarketOutcome'
+
+    MarketOutcome:
+      type: object
+      required:
+        - outcome_key
+        - outcome_label
+        - best_bookmaker
+        - odds_decimal
+        - p_model
+        - p_sharp
+        - p_true
+        - fair_odds
+        - ev_standard_pl
+        - ev_taxfree_pl
+        - is_value_bet
+        - kelly_fraction
+      properties:
+        outcome_key:
+          type: string
+          example: home
+        outcome_label:
+          type: string
+          example: '1'
+        best_bookmaker:
+          type: string
+          example: betclic
+        odds_decimal:
+          type: number
+          format: double
+          example: 1.85
+        p_model:
+          type: number
+          format: double
+          minimum: 0.0
+          maximum: 1.0
+          example: 0.582
+        p_sharp:
+          type: number
+          format: double
+          minimum: 0.0
+          maximum: 1.0
+          example: 0.565
+        p_true:
+          type: number
+          format: double
+          minimum: 0.0
+          maximum: 1.0
+          example: 0.572
+        fair_odds:
+          type: number
+          format: double
+          example: 1.748
+        ev_standard_pl:
+          type: number
+          format: double
+          description: EV przy ustawowym podatku 12% (p_true * odds * 0.88 - 1)
+          example: -0.0688
+        ev_taxfree_pl:
+          type: number
+          format: double
+          description: EV w promocji bez podatku (p_true * odds - 1)
+          example: 0.0582
+        is_value_bet:
+          type: boolean
+          example: true
+        kelly_fraction:
+          type: number
+          format: double
+          minimum: 0.0
+          maximum: 0.05
+          example: 0.018
+
+    # --- Breakdown Schemas ---
+    EventBreakdownResponse:
+      type: object
+      required:
+        - event_id
+        - sport
+        - league_name
+        - home_team
+        - away_team
+        - start_time_utc
+        - status
+        - model_name
+        - model_version
+        - bayesian_fusion
+        - competitor_ratings
+        - factual_factors
+        - available_markets
+      properties:
+        event_id:
+          type: string
+          example: ft_pl_20261112_ars_che
+        sport:
+          type: string
+          example: football
+        league_name:
+          type: string
+          example: Premier League
+        home_team:
+          type: string
+          example: Arsenal FC
+        away_team:
+          type: string
+          example: Chelsea FC
+        start_time_utc:
+          type: string
+          format: date-time
+          example: '2026-11-14T17:30:00Z'
+        status:
+          type: string
+          example: pre_match
+        surface_or_format:
+          type: [string, "null"]
+          example: Grass
+        model_name:
+          type: [string, "null"]
+          example: dixon_coles_xg_v1
+        model_version:
+          type: string
+          example: dc_xg_1.2
+        bayesian_fusion:
+          $ref: '#/components/schemas/BayesianFusionSummary'
+        football_breakdown:
+          $ref: '#/components/schemas/FootballBreakdown'
+        basketball_breakdown:
+          $ref: '#/components/schemas/BasketballBreakdown'
+        tennis_breakdown:
+          $ref: '#/components/schemas/TennisBreakdown'
+        hockey_breakdown:
+          $ref: '#/components/schemas/HockeyBreakdown'
+        competitor_ratings:
+          $ref: '#/components/schemas/CompetitorRatingsSummary'
+        factual_factors:
+          type: array
+          items:
+            $ref: '#/components/schemas/FactualFactor'
+        available_markets:
+          type: array
+          items:
+            $ref: '#/components/schemas/MarketPredictionDetail'
+
+    BayesianFusionSummary:
+      type: object
+      required:
+        - model_weight
+        - sharp_weight
+        - sharp_bookmaker
+        - devig_method_applied
+        - market_margin_devigged
+      properties:
+        model_weight:
+          type: number
+          format: double
+          example: 0.45
+        sharp_weight:
+          type: number
+          format: double
+          example: 0.55
+        sharp_bookmaker:
+          type: string
+          example: pinnacle
+        devig_method_applied:
+          type: string
+          enum: [shin, power, multiplicative]
+          example: shin
+        market_margin_devigged:
+          type: number
+          format: double
+          example: 0.024
+        shin_z_parameter:
+          type: [number, "null"]
+          format: double
+          example: 0.021
+        power_c_exponent:
+          type: [number, "null"]
+          format: double
+          example: 1.042
+
+    FootballBreakdown:
+      type: object
+      required:
+        - lambda_home
+        - mu_away
+        - rho_correlation
+        - xg_home_adjusted
+        - xg_away_adjusted
+        - home_advantage
+        - score_matrix_8x8
+        - most_likely_scores
+      properties:
+        lambda_home:
+          type: number
+          format: double
+          description: Oczekiwana liczba bramek gospodarzy
+          example: 1.84
+        mu_away:
+          type: number
+          format: double
+          description: Oczekiwana liczba bramek gości
+          example: 1.12
+        rho_correlation:
+          type: number
+          format: double
+          description: Parametr korelacji niskich wyników (Dixon-Coles tau)
+          example: -0.11
+        xg_weight:
+          type: number
+          format: double
+          default: 0.70
+          example: 0.70
+        goals_weight:
+          type: number
+          format: double
+          default: 0.30
+          example: 0.30
+        xg_home_adjusted:
+          type: number
+          format: double
+          example: 1.92
+        xg_away_adjusted:
+          type: number
+          format: double
+          example: 1.05
+        home_advantage:
+          type: number
+          format: double
+          example: 1.22
+        score_matrix_8x8:
+          type: array
+          description: Macierz prawdopodobieństw wyników od 0:0 do 7:7
+          items:
+            type: array
+            items:
+              type: number
+              format: double
+        most_likely_scores:
+          type: array
+          items:
+            $ref: '#/components/schemas/ScoreProbability'
+
+    ScoreProbability:
+      type: object
+      required:
+        - home_goals
+        - away_goals
+        - probability
+      properties:
+        home_goals:
+          type: integer
+          example: 2
+        away_goals:
+          type: integer
+          example: 1
+        probability:
+          type: number
+          format: double
+          example: 0.108
+
+    BasketballBreakdown:
+      type: object
+      required:
+        - expected_pace
+        - league_avg_pace
+        - ortg_home
+        - drtg_home
+        - ortg_away
+        - drtg_away
+        - mu_points_home
+        - mu_points_away
+        - sigma_diff
+        - sigma_tot
+      properties:
+        expected_pace:
+          type: number
+          format: double
+          example: 101.4
+        league_avg_pace:
+          type: number
+          format: double
+          example: 99.2
+        ortg_home:
+          type: number
+          format: double
+          example: 114.5
+        drtg_home:
+          type: number
+          format: double
+          example: 110.2
+        ortg_away:
+          type: number
+          format: double
+          example: 112.1
+        drtg_away:
+          type: number
+          format: double
+          example: 113.8
+        mu_points_home:
+          type: number
+          format: double
+          example: 116.8
+        mu_points_away:
+          type: number
+          format: double
+          example: 111.4
+        sigma_diff:
+          type: number
+          format: double
+          example: 11.8
+        sigma_tot:
+          type: number
+          format: double
+          example: 17.5
+        home_court_advantage_pts:
+          type: number
+          format: double
+          example: 2.8
+
+    TennisBreakdown:
+      type: object
+      required:
+        - surface
+        - match_format
+        - p_serve_player_a
+        - p_serve_player_b
+        - p_game_a
+        - p_game_b
+        - p_tiebreak_a
+        - p_set_a
+        - player_a_surface_elo
+        - player_b_surface_elo
+      properties:
+        surface:
+          type: string
+          enum: [Hard, Clay, Grass]
+          example: Clay
+        match_format:
+          type: string
+          enum: [Bo3, Bo5]
+          example: Bo3
+        p_serve_player_a:
+          type: number
+          format: double
+          example: 0.652
+        p_serve_player_b:
+          type: number
+          format: double
+          example: 0.618
+        p_game_a:
+          type: number
+          format: double
+          example: 0.812
+        p_game_b:
+          type: number
+          format: double
+          example: 0.748
+        p_tiebreak_a:
+          type: number
+          format: double
+          example: 0.584
+        p_set_a:
+          type: number
+          format: double
+          example: 0.625
+        player_a_surface_elo:
+          type: number
+          format: double
+          example: 2045.0
+        player_b_surface_elo:
+          type: number
+          format: double
+          example: 1930.0
+
+    HockeyBreakdown:
+      type: object
+      required:
+        - lambda_home
+        - mu_away
+        - empty_net_multiplier
+        - empty_net_time_window_min
+        - regulation_draw_prob
+        - skellam_diff_distribution
+      properties:
+        lambda_home:
+          type: number
+          format: double
+          example: 3.15
+        mu_away:
+          type: number
+          format: double
+          example: 2.65
+        empty_net_multiplier:
+          type: number
+          format: double
+          default: 3.20
+          example: 3.20
+        empty_net_time_window_min:
+          type: number
+          format: double
+          default: 2.0
+          example: 2.0
+        regulation_draw_prob:
+          type: number
+          format: double
+          example: 0.224
+        skellam_diff_distribution:
+          type: array
+          items:
+            $ref: '#/components/schemas/GoalDiffProbability'
+
+    GoalDiffProbability:
+      type: object
+      required:
+        - goal_difference
+        - probability
+      properties:
+        goal_difference:
+          type: integer
+          example: 1
+        probability:
+          type: number
+          format: double
+          example: 0.182
+
+    FactualFactor:
+      type: object
+      required:
+        - factor_key
+        - title
+        - description
+        - impact
+        - magnitude
+      properties:
+        factor_key:
+          type: string
+          example: xg_trend_h2h
+        title:
+          type: string
+          example: Dominacja xG w meczach bezpośrednich
+        description:
+          type: string
+          example: Arsenal wygenerował średnio +0.82 xG przewagi w 3 ostatnich starciach u siebie.
+        impact:
+          type: string
+          enum: [positive, negative, neutral]
+          example: positive
+        magnitude:
+          type: string
+          enum: [minor, moderate, major]
+          example: moderate
+
+    CompetitorRatingsSummary:
+      type: object
+      required:
+        - home_id
+        - home_name
+        - away_id
+        - away_name
+      properties:
+        home_id:
+          type: string
+          example: ars
+        home_name:
+          type: string
+          example: Arsenal FC
+        away_id:
+          type: string
+          example: che
+        away_name:
+          type: string
+          example: Chelsea FC
+        home_elo:
+          type: [number, "null"]
+          format: double
+          example: 1980.5
+        away_elo:
+          type: [number, "null"]
+          format: double
+          example: 1875.0
+        xg_attack_home:
+          type: [number, "null"]
+          format: double
+          example: 2.15
+        xg_defense_home:
+          type: [number, "null"]
+          format: double
+          example: 0.95
+        xg_attack_away:
+          type: [number, "null"]
+          format: double
+          example: 1.60
+        xg_defense_away:
+          type: [number, "null"]
+          format: double
+          example: 1.45
+        pace_home:
+          type: [number, "null"]
+          format: double
+        pace_away:
+          type: [number, "null"]
+          format: double
+
+    MarketPredictionDetail:
+      type: object
+      required:
+        - market_key
+        - market_label
+        - outcomes
+      properties:
+        market_key:
+          type: string
+          example: totals_2_5
+        market_label:
+          type: string
+          example: Liczba goli (Powyżej/Poniżej 2.5)
+        outcomes:
+          type: array
+          items:
+            $ref: '#/components/schemas/OutcomePredictionDetail'
+
+    OutcomePredictionDetail:
+      type: object
+      required:
+        - outcome_key
+        - outcome_label
+        - p_model
+        - p_sharp
+        - p_true
+        - fair_odds
+        - bookmaker_odds
+        - best_bookmaker
+        - best_odds
+        - ev_standard_pl
+        - ev_taxfree_pl
+        - kelly_fraction
+      properties:
+        outcome_key:
+          type: string
+          example: over
+        outcome_label:
+          type: string
+          example: Powyżej 2.5
+        p_model:
+          type: number
+          format: double
+          example: 0.595
+        p_sharp:
+          type: number
+          format: double
+          example: 0.580
+        p_true:
+          type: number
+          format: double
+          example: 0.587
+        fair_odds:
+          type: number
+          format: double
+          example: 1.704
+        bookmaker_odds:
+          type: array
+          items:
+            $ref: '#/components/schemas/BookmakerOddsItem'
+        best_bookmaker:
+          type: string
+          example: betclic
+        best_odds:
+          type: number
+          format: double
+          example: 1.82
+        ev_standard_pl:
+          type: number
+          format: double
+          example: -0.060
+        ev_taxfree_pl:
+          type: number
+          format: double
+          example: 0.068
+        kelly_fraction:
+          type: number
+          format: double
+          example: 0.021
+
+    BookmakerOddsItem:
+      type: object
+      required:
+        - bookmaker_key
+        - bookmaker_name
+        - odds_decimal
+        - is_promotional_zero_tax
+        - ev_net
+      properties:
+        bookmaker_key:
+          type: [string, "null"]
+          example: betclic
+        bookmaker_name:
+          type: string
+          example: Betclic
+        odds_decimal:
+          type: number
+          format: double
+          example: 1.82
+        is_promotional_zero_tax:
+          type: boolean
+          example: true
+        ev_net:
+          type: number
+          format: double
+          example: 0.068
+
+    # --- Coupon Generator Schemas ---
+    SlipGenerateRequest:
+      type: object
+      required:
+        - sports
+        - risk_profile
+        - target_odds_min
+        - target_odds_max
+      properties:
+        sports:
+          type: array
+          items:
+            type: string
+            enum: [football, basketball, tennis, hockey, volleyball, table_tennis]
+          example: [football, basketball, tennis, hockey]
+        markets:
+          type: array
+          items:
+            type: string
+          example: [1x2, totals_2_5, spread, moneyline]
+        risk_profile:
+          type: string
+          enum: [conservative, balanced, aggressive, max_value]
+          example: balanced
+        target_odds_min:
+          type: number
+          format: double
+          minimum: 1.10
+          default: 2.50
+          example: 2.50
+        target_odds_max:
+          type: number
+          format: double
+          minimum: 1.20
+          default: 5.00
+          example: 5.00
+        min_legs:
+          type: integer
+          minimum: 1
+          maximum: 10
+          default: 2
+          example: 2
+        max_legs:
+          type: integer
+          minimum: 1
+          maximum: 10
+          default: 4
+          example: 4
+        min_leg_prob:
+          type: number
+          format: double
+          minimum: 0.0
+          maximum: 1.0
+          default: 0.45
+          example: 0.50
+        stake:
+          type: number
+          format: double
+          minimum: 1.00
+          default: 100.00
+          example: 100.00
+        bookmaker_mode:
+          type: string
+          enum: [standard_088, betclic_tax_free, fortuna_promo, superbet_boost]
+          default: betclic_tax_free
+          example: betclic_tax_free
+        only_plus_ev:
+          type: boolean
+          default: false
+          example: false
+        custom_overrides:
+          type: object
+          additionalProperties:
+            type: number
+            format: double
+          description: "Opcjonalna mapa nadpisanych kursów (np. ft_pl_20261112_ars_che:1x2:home -> 1.90)"
+
+    SlipGenerateResponse:
+      type: object
+      required:
+        - coupons
+        - candidate_pool_size
+        - solver_algorithm
+        - execution_time_ms
+      properties:
+        coupons:
+          type: array
+          items:
+            $ref: '#/components/schemas/GeneratedCoupon'
+        candidate_pool_size:
+          type: integer
+          example: 48
+        solver_algorithm:
+          type: string
+          example: beam_search_max_p_joint
+        execution_time_ms:
+          type: number
+          format: double
+          example: 14.2
+
+    GeneratedCoupon:
+      type: object
+      required:
+        - id
+        - title
+        - risk_tier
+        - selections
+        - total_odds_gross
+        - tax_multiplier
+        - total_odds_net
+        - joint_probability
+        - stake
+        - potential_payout_gross
+        - potential_payout_net
+        - pit_10_applies
+        - pit_10_deduction
+        - slip_ev_net
+        - kelly_stake_fraction
+        - kelly_recommended_stake_pln
+        - anti_correlation_passed
+      properties:
+        id:
+          type: string
+          example: slip_opt_01
+        title:
+          type: string
+          example: Optymalny Kupon AKO (Wysoka Szansa)
+        risk_tier:
+          type: string
+          enum: [conservative, balanced, aggressive, max_value]
+          example: balanced
+        selections:
+          type: array
+          items:
+            $ref: '#/components/schemas/CouponSelection'
+        total_odds_gross:
+          type: number
+          format: double
+          example: 3.42
+        tax_multiplier:
+          type: number
+          format: double
+          enum: [0.88, 1.00]
+          example: 1.00
+        total_odds_net:
+          type: number
+          format: double
+          example: 3.42
+        joint_probability:
+          type: number
+          format: double
+          description: Łączne prawdopodobieństwo trafienia kuponu P(AKO)
+          example: 0.312
+        stake:
+          type: number
+          format: double
+          example: 100.00
+        potential_payout_gross:
+          type: number
+          format: double
+          example: 342.00
+        potential_payout_net:
+          type: number
+          format: double
+          description: Wypłata netto po potrąceniu podatku od gier i podatku PIT 10% (jeśli >2280 PLN)
+          example: 342.00
+        pit_10_applies:
+          type: boolean
+          description: Flaga czy wygrana brutto przekroczyła próg 2280 PLN
+          example: false
+        pit_10_deduction:
+          type: number
+          format: double
+          description: Kwota 10% podatku PIT od całej wygranej
+          example: 0.00
+        pit_warning:
+          type: [string, "null"]
+          example: null
+        slip_ev_net:
+          type: number
+          format: double
+          description: Ostateczne Net EV całego kuponu (P_joint * Wypłata_net / Stawka - 1)
+          example: 0.067
+        kelly_stake_fraction:
+          type: number
+          format: double
+          example: 0.021
+        kelly_recommended_stake_pln:
+          type: number
+          format: double
+          example: 21.00
+        tax_savings_advice:
+          $ref: '#/components/schemas/SplitAdvice'
+        anti_correlation_passed:
+          type: boolean
+          description: Flaga gwarantująca brak korelacji (maks. 1 typ z każdego meczu)
+          example: true
+
+    CouponSelection:
+      type: object
+      required:
+        - event_id
+        - event_name
+        - sport
+        - league_name
+        - start_time_utc
+        - market_key
+        - market_label
+        - outcome_key
+        - outcome_label
+        - bookmaker_key
+        - odds_gross
+        - p_model
+        - p_sharp
+        - p_true
+        - ev_net
+        - applied_tax_multiplier
+      properties:
+        event_id:
+          type: [string, "null"]
+          example: ft_pl_20261112_ars_che
+        event_name:
+          type: string
+          example: Arsenal FC vs Chelsea FC
+        sport:
+          type: string
+          example: football
+        league_name:
+          type: string
+          example: Premier League
+        start_time_utc:
+          type: string
+          format: date-time
+          example: '2026-11-14T17:30:00Z'
+        market_key:
+          type: string
+          example: 1x2
+        market_label:
+          type: string
+          example: Wynik meczu
+        outcome_key:
+          type: string
+          example: home
+        outcome_label:
+          type: string
+          example: '1'
+        bookmaker_key:
+          type: [string, "null"]
+          example: betclic
+        odds_gross:
+          type: number
+          format: double
+          example: 1.85
+        p_model:
+          type: number
+          format: double
+          example: 0.582
+        p_sharp:
+          type: number
+          format: double
+          example: 0.565
+        p_true:
+          type: number
+          format: double
+          example: 0.572
+        ev_net:
+          type: number
+          format: double
+          example: 0.0583
+        applied_tax_multiplier:
+          type: number
+          format: double
+          example: 1.00
+
+    SplitAdvice:
+      type: object
+      required:
+        - recommended
+        - original_gross_payout
+        - original_tax_deduction
+        - split_tickets_count
+        - stake_per_ticket
+        - payout_per_ticket
+        - net_tax_saved
+        - advice_text
+      properties:
+        recommended:
+          type: boolean
+          example: true
+        original_gross_payout:
+          type: number
+          format: double
+          example: 3000.00
+        original_tax_deduction:
+          type: number
+          format: double
+          example: 300.00
+        split_tickets_count:
+          type: integer
+          example: 2
+        stake_per_ticket:
+          type: number
+          format: double
+          example: 50.00
+        payout_per_ticket:
+          type: number
+          format: double
+          example: 1500.00
+        net_tax_saved:
+          type: number
+          format: double
+          example: 300.00
+        advice_text:
+          type: string
+          example: >-
+            Wygrana przekracza 2280 PLN i podlega 10% podatku PIT (300.00 PLN).
+            Rozbij kupon na 2 identyczne zakłady po 50.00 PLN z wygraną 1500.00 PLN każdy,
+            aby legalnie zaoszczędzić 300.00 PLN podatku dochodowego!
+
+    # --- Live Recalculation (1-Click Override) ---
+    SlipEvaluateRequest:
+      type: object
+      required:
+        - selections
+        - stake
+        - bookmaker_mode
+      properties:
+        selections:
+          type: array
+          items:
+            $ref: '#/components/schemas/LegInput'
+        stake:
+          type: number
+          format: double
+          minimum: 1.00
+          default: 100.00
+          example: 100.00
+        bookmaker_mode:
+          type: string
+          enum: [standard_088, betclic_tax_free, fortuna_promo, superbet_boost]
+          default: betclic_tax_free
+          example: betclic_tax_free
+
+    LegInput:
+      type: object
+      required:
+        - event_id
+        - market_key
+        - outcome_key
+      properties:
+        event_id:
+          type: string
+          example: ft_pl_20261112_ars_che
+        market_key:
+          type: string
+          example: 1x2
+        outcome_key:
+          type: string
+          example: home
+        odds_override:
+          type: [number, "null"]
+          format: double
+          description: Ręcznie wpisany kurs bukmachera (1-click override)
+          example: 1.88
+        bookmaker_key:
+          type: [string, "null"]
+          example: fortuna
+
+    SlipEvaluateResponse:
+      type: object
+      required:
+        - selections
+        - total_odds_gross
+        - tax_multiplier
+        - total_odds_net
+        - joint_probability
+        - stake
+        - potential_payout_gross
+        - potential_payout_net
+        - pit_10_applies
+        - pit_10_deduction
+        - slip_ev_net
+        - kelly_stake_fraction
+        - is_correlated
+        - validation_warnings
+      properties:
+        selections:
+          type: array
+          items:
+            $ref: '#/components/schemas/CouponSelection'
+        total_odds_gross:
+          type: number
+          format: double
+          example: 3.53
+        tax_multiplier:
+          type: number
+          format: double
+          example: 1.00
+        total_odds_net:
+          type: number
+          format: double
+          example: 3.53
+        joint_probability:
+          type: number
+          format: double
+          example: 0.312
+        stake:
+          type: number
+          format: double
+          example: 100.00
+        potential_payout_gross:
+          type: number
+          format: double
+          example: 353.00
+        potential_payout_net:
+          type: number
+          format: double
+          example: 353.00
+        pit_10_applies:
+          type: boolean
+          example: false
+        pit_10_deduction:
+          type: number
+          format: double
+          example: 0.00
+        pit_warning:
+          type: [string, "null"]
+          example: null
+        slip_ev_net:
+          type: number
+          format: double
+          example: 0.101
+        kelly_stake_fraction:
+          type: number
+          format: double
+          example: 0.026
+        tax_savings_advice:
+          $ref: '#/components/schemas/SplitAdvice'
+        is_correlated:
+          type: boolean
+          description: Flaga informująca czy na kuponie znalazły się skorelowane typy z tego samego meczu
+          example: false
+        validation_warnings:
+          type: array
+          items:
+            type: [string, "null"]
+          example: []
+
+    # --- Saved Slips Schemas ---
+    SaveSlipRequest:
+      type: object
+      required:
+        - name
+        - selections
+        - stake
+        - bookmaker_key
+        - bookmaker_mode
+      properties:
+        name:
+          type: [string, "null"]
+          maxLength: 100
+          example: Kupon weekendowy Premier League
+        selections:
+          type: array
+          items:
+            $ref: '#/components/schemas/LegInput'
+        stake:
+          type: number
+          format: double
+          minimum: 1.00
+          example: 50.00
+        bookmaker_key:
+          type: [string, "null"]
+          example: betclic
+        bookmaker_mode:
+          type: string
+          enum: [standard_088, betclic_tax_free, fortuna_promo, superbet_boost]
+          example: betclic_tax_free
+        user_profile_params:
+          type: object
+          description: Parametry generatora, z których utworzono kupon
+          additionalProperties: true
+
+    SavedSlipResponse:
+      type: object
+      required:
+        - slip
+      properties:
+        slip:
+          $ref: '#/components/schemas/SavedSlip'
+
+    SavedSlipListResponse:
+      type: object
+      required:
+        - items
+        - total
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/SavedSlip'
+        total:
+          type: integer
+          example: 5
+
+    SavedSlip:
+      type: object
+      required:
+        - id
+        - user_id
+        - name
+        - selections
+        - bookmaker_key
+        - tax_multiplier
+        - total_odds_gross
+        - total_odds_net
+        - stake
+        - potential_payout_gross
+        - potential_payout_net
+        - joint_probability
+        - slip_ev_net
+        - recommended_kelly_stake_pct
+        - pit_10_applies
+        - created_at
+      properties:
+        id:
+          type: string
+          format: uuid
+          example: a1b2c3d4-e5f6-7a8b-9c0d-1e2f3a4b5c6d
+        user_id:
+          type: string
+          format: uuid
+          example: 00000000-0000-0000-0000-000000000001
+        name:
+          type: string
+          example: Kupon weekendowy Premier League
+        selections:
+          type: array
+          items:
+            $ref: '#/components/schemas/CouponSelection'
+        bookmaker_key:
+          type: [string, "null"]
+          example: betclic
+        tax_multiplier:
+          type: number
+          format: double
+          example: 1.00
+        total_odds_gross:
+          type: number
+          format: double
+          example: 3.42
+        total_odds_net:
+          type: number
+          format: double
+          example: 3.42
+        stake:
+          type: number
+          format: double
+          example: 100.00
+        potential_payout_gross:
+          type: number
+          format: double
+          example: 342.00
+        potential_payout_net:
+          type: number
+          format: double
+          example: 342.00
+        joint_probability:
+          type: number
+          format: double
+          example: 0.312
+        slip_ev_net:
+          type: number
+          format: double
+          example: 0.067
+        recommended_kelly_stake_pct:
+          type: number
+          format: double
+          example: 0.021
+        pit_10_applies:
+          type: boolean
+          example: false
+        created_at:
+          type: string
+          format: date-time
+          example: '2026-11-12T20:30:00Z'
+
+    # --- Calibration Metrics Schemas ---
+    CalibrationMetricsResponse:
+      type: object
+      required:
+        - time_horizon
+        - overall
+        - by_sport
+        - reliability_bins
+        - last_calculated_at
+      properties:
+        time_horizon:
+          type: string
+          example: 90d
+        overall:
+          $ref: '#/components/schemas/CalibrationMetricsSummary'
+        by_sport:
+          type: array
+          items:
+            $ref: '#/components/schemas/SportCalibrationMetrics'
+        reliability_bins:
+          type: array
+          items:
+            $ref: '#/components/schemas/CalibrationBin'
+        last_calculated_at:
+          type: string
+          format: date-time
+          example: '2026-11-12T06:00:00Z'
+
+    CalibrationMetricsSummary:
+      type: object
+      required:
+        - sample_size
+        - brier_score
+        - brier_skill_score
+        - log_loss
+        - clv_beat_rate
+        - avg_clv_percentage
+      properties:
+        sample_size:
+          type: integer
+          description: Całkowita próba rozstrzygniętych selekcji poddanych audytowi
+          example: 3450
+        brier_score:
+          type: number
+          format: double
+          description: Brier Score (średni błąd kwadratowy prawdopodobieństw)
+          example: 0.1982
+        brier_skill_score:
+          type: number
+          format: double
+          description: Względna poprawa względem losowego benchmarku
+          example: 0.042
+        log_loss:
+          type: number
+          format: double
+          example: 0.5841
+        clv_beat_rate:
+          type: number
+          format: double
+          description: Procent zakładów bijących kurs zamknięcia (Closing Line Value - Pinnacle)
+          example: 0.618
+        avg_clv_percentage:
+          type: number
+          format: double
+          description: Średnia przewaga nad kursem zamknięcia CLV (+3.4%)
+          example: 0.034
+
+    SportCalibrationMetrics:
+      type: object
+      required:
+        - sport
+        - sport_name_pl
+        - model_name
+        - sample_size
+        - brier_score
+        - log_loss
+        - clv_beat_rate
+        - avg_clv_percentage
+      properties:
+        sport:
+          type: string
+          example: football
+        sport_name_pl:
+          type: string
+          example: Piłka nożna
+        model_name:
+          type: string
+          example: dixon_coles_xg_v1
+        sample_size:
+          type: integer
+          example: 1250
+        brier_score:
+          type: number
+          format: double
+          example: 0.1915
+        log_loss:
+          type: number
+          format: double
+          example: 0.5620
+        clv_beat_rate:
+          type: number
+          format: double
+          example: 0.635
+        avg_clv_percentage:
+          type: number
+          format: double
+          example: 0.038
+
+    CalibrationBin:
+      type: object
+      required:
+        - bin_index
+        - predicted_prob_lower
+        - predicted_prob_upper
+        - mean_predicted_prob
+        - empirical_win_rate
+        - sample_count
+        - brier_contribution
+      properties:
+        bin_index:
+          type: integer
+          example: 5
+        predicted_prob_lower:
+          type: number
+          format: double
+          example: 0.50
+        predicted_prob_upper:
+          type: number
+          format: double
+          example: 0.60
+        mean_predicted_prob:
+          type: number
+          format: double
+          example: 0.548
+        empirical_win_rate:
+          type: number
+          format: double
+          example: 0.552
+        sample_count:
+          type: integer
+          example: 412
+        brier_contribution:
+          type: number
+          format: double
+          example: 0.00014
+
+    # --- Error & Common Schemas ---
+    ErrorResponse:
+      type: object
+      required:
+        - code
+        - message
+        - timestamp
+      properties:
+        code:
+          type: string
+          enum:
+            - BAD_REQUEST
+            - NOT_FOUND
+            - UNAUTHORIZED
+            - FORBIDDEN
+            - VALIDATION_ERROR
+            - CORRELATED_SELECTIONS
+            - RATE_LIMIT_EXCEEDED
+            - INTERNAL_ERROR
+          example: VALIDATION_ERROR
+        message:
+          type: string
+          example: Błąd walidacji parametrów kuponu.
+        details:
+          type: [array, "null"]
+          items:
+            $ref: '#/components/schemas/ValidationErrorDetail'
+        timestamp:
+          type: string
+          format: date-time
+          example: '2026-11-12T20:30:00Z'
+
+    ValidationErrorDetail:
+      type: object
+      required:
+        - field
+        - message
+      properties:
+        field:
+          type: string
+          example: target_odds_min
+        message:
+          type: string
+          example: Wartość target_odds_min (5.00) nie może być większa niż target_odds_max (3.00).
+
+    StandardSuccessResponse:
+      type: object
+      required:
+        - success
+        - message
+      properties:
+        success:
+          type: boolean
+          example: true
+        message:
+          type: string
+          example: Operacja zakończona pomyślnie.

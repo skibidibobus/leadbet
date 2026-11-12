@@ -1,0 +1,68 @@
+[
+  {
+    "id": "devig_2way_even",
+    "market": "tennis_match",
+    "odds": [1.952, 1.952],
+    "overround": 1.0246,
+    "expected_fair_probs": [0.50, 0.50],
+    "tolerance": 1e-4
+  },
+  {
+    "id": "devig_2way_uneven",
+    "market": "basketball_moneyline",
+    "odds": [1.40, 3.10],
+    "overround": 1.0369,
+    "expected_sum_probs": 1.00000,
+    "tolerance": 1e-5
+  },
+  {
+    "id": "devig_3way_football_standard",
+    "market": "football_1x2",
+    "odds": [1.80, 3.50, 4.20],
+    "overround": 1.0794,
+    "expected_shin_z_range": [0.01, 0.05],
+    "expected_sum_probs": 1.00000,
+    "tolerance": 1e-5
+  },
+  {
+    "id": "devig_3way_balanced",
+    "market": "football_1x2_balanced",
+    "odds": [2.60, 3.20, 2.70],
+    "overround": 1.0675,
+    "expected_sum_probs": 1.00000,
+    "tolerance": 1e-5
+  },
+  {
+    "id": "devig_extreme_favorite_longshot",
+    "market": "tennis_heavy_favorite",
+    "odds": [1.02, 35.00],
+    "overround": 1.0089,
+    "expected_shin_z_range": [0.001, 0.03],
+    "expected_sum_probs": 1.00000,
+    "tolerance": 1e-5
+  },
+  {
+    "id": "devig_high_overround",
+    "market": "retail_high_margin",
+    "odds": [1.80, 1.80],
+    "overround": 1.1111,
+    "expected_fair_probs": [0.50, 0.50],
+    "tolerance": 1e-4
+  },
+  {
+    "id": "devig_low_margin_sharp",
+    "market": "pinnacle_spread",
+    "odds": [1.98, 1.98],
+    "overround": 1.0101,
+    "expected_fair_probs": [0.50, 0.50],
+    "tolerance": 1e-4
+  },
+  {
+    "id": "devig_multi_outcome_4way",
+    "market": "group_winner_4way",
+    "odds": [2.20, 3.40, 4.50, 6.00],
+    "overround": 1.1378,
+    "expected_sum_probs": 1.00000,
+    "tolerance": 1e-5
+  }
+]

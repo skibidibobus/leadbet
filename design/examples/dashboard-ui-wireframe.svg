@@ -1,0 +1,200 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 760" width="1280" height="760" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
+  <!-- 60% Obsidian Background -->
+  <rect width="1280" height="760" fill="#0B0F19"/>
+
+  <!-- Top Navigation Bar (30% Slate Surface) -->
+  <rect x="0" y="0" width="1280" height="68" fill="#131C2E"/>
+  <line x1="0" y1="68" x2="1280" y2="68" stroke="#23324D" stroke-width="1"/>
+
+  <!-- Brand Logo -->
+  <rect x="28" y="18" width="32" height="32" rx="8" fill="#064E3B" stroke="#10B981" stroke-width="1.5"/>
+  <path d="M 36 40 L 42 32 L 47 36 L 54 24" fill="none" stroke="#10B981" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="54" cy="24" r="2.5" fill="#F59E0B"/>
+  <text x="72" y="40" fill="#F8FAFC" font-size="17" font-weight="800" letter-spacing="0.04em">QUANTKUPON</text>
+
+  <!-- Sport Category Pills -->
+  <rect x="240" y="17" width="112" height="34" rx="17" fill="#064E3B" stroke="#10B981" stroke-width="1.2"/>
+  <text x="296" y="39" text-anchor="middle" fill="#10B981" font-size="12.5" font-weight="700">Piłka nożna</text>
+
+  <rect x="362" y="17" width="106" height="34" rx="17" fill="#1B263B" stroke="#23324D" stroke-width="1"/>
+  <text x="415" y="39" text-anchor="middle" fill="#CBD5E1" font-size="12.5">Koszykówka</text>
+
+  <rect x="478" y="17" width="96" height="34" rx="17" fill="#1B263B" stroke="#23324D" stroke-width="1"/>
+  <text x="526" y="39" text-anchor="middle" fill="#CBD5E1" font-size="12.5">Siatkówka</text>
+
+  <rect x="584" y="17" width="106" height="34" rx="17" fill="#1B263B" stroke="#23324D" stroke-width="1"/>
+  <text x="637" y="39" text-anchor="middle" fill="#CBD5E1" font-size="12.5">Tenis ziemny</text>
+
+  <rect x="700" y="17" width="84" height="34" rx="17" fill="#1B263B" stroke="#23324D" stroke-width="1"/>
+  <text x="742" y="39" text-anchor="middle" fill="#CBD5E1" font-size="12.5">Hokej</text>
+
+  <rect x="794" y="17" width="124" height="34" rx="17" fill="#1B263B" stroke="#F59E0B" stroke-width="1"/>
+  <text x="856" y="39" text-anchor="middle" fill="#F59E0B" font-size="12.5" font-weight="600">Tenis stołowy</text>
+
+  <!-- Bookmaker Selector Badge -->
+  <rect x="1036" y="18" width="216" height="32" rx="8" fill="#0F1624" stroke="#23324D" stroke-width="1"/>
+  <circle cx="1054" cy="34" r="4" fill="#10B981"/>
+  <text x="1066" y="38" fill="#CBD5E1" font-size="11.5" font-family="JetBrains Mono, monospace">Feed: Legalny PL (0.88×)</text>
+
+  <!-- Filter Bar -->
+  <rect x="28" y="88" width="844" height="52" rx="12" fill="#131C2E" stroke="#23324D" stroke-width="1"/>
+  <text x="48" y="119" fill="#94A3B8" font-size="12.5">Kategorie rynków:</text>
+  <rect x="172" y="100" width="76" height="28" rx="6" fill="#1B263B" stroke="#10B981" stroke-width="1"/>
+  <text x="210" y="118" text-anchor="middle" fill="#10B981" font-size="11.5" font-weight="600">Wszystkie</text>
+  <rect x="256" y="100" width="60" height="28" rx="6" fill="#0F1624" stroke="#23324D" stroke-width="1"/>
+  <text x="286" y="118" text-anchor="middle" fill="#CBD5E1" font-size="11.5">1X2</text>
+  <rect x="324" y="100" width="96" height="28" rx="6" fill="#0F1624" stroke="#23324D" stroke-width="1"/>
+  <text x="372" y="118" text-anchor="middle" fill="#CBD5E1" font-size="11.5">Over / Under</text>
+  <rect x="428" y="100" width="96" height="28" rx="6" fill="#0F1624" stroke="#23324D" stroke-width="1"/>
+  <text x="476" y="118" text-anchor="middle" fill="#CBD5E1" font-size="11.5">Handicapy</text>
+  <rect x="532" y="100" width="110" height="28" rx="6" fill="#0F1624" stroke="#23324D" stroke-width="1"/>
+  <text x="587" y="118" text-anchor="middle" fill="#CBD5E1" font-size="11.5">Tylko +EV &gt; 2%</text>
+  <text x="728" y="118" fill="#94A3B8" font-size="11.5" font-family="JetBrains Mono, monospace">Sort: EV Netto ▼</text>
+
+  <!-- Main Analytical Table Card -->
+  <rect x="28" y="156" width="540" height="572" rx="14" fill="#131C2E" stroke="#23324D" stroke-width="1"/>
+  <text x="48" y="188" fill="#F8FAFC" font-size="15" font-weight="700">ANALIZA KURSÓW I WARTOŚCI MATEMATYCZNEJ</text>
+  <text x="48" y="207" fill="#94A3B8" font-size="11.5">Porównanie kursu bukmachera z bezmarżową szansą modelu</text>
+
+  <!-- Table Header -->
+  <rect x="44" y="224" width="508" height="32" rx="6" fill="#1B263B"/>
+  <text x="56" y="244" fill="#94A3B8" font-size="11" font-weight="700">ZDARZENIE / KATEGORIA</text>
+  <text x="312" y="244" fill="#94A3B8" font-size="11" font-weight="700">KURS</text>
+  <text x="378" y="244" fill="#94A3B8" font-size="11" font-weight="700">P(MODEL)</text>
+  <text x="466" y="244" fill="#94A3B8" font-size="11" font-weight="700">EV NETTO</text>
+
+  <!-- Row 1 -->
+  <line x1="44" y1="316" x2="552" y2="316" stroke="#23324D" stroke-width="1"/>
+  <text x="56" y="280" fill="#F8FAFC" font-size="13" font-weight="600">Lech Poznań — Raków (Over 2.25)</text>
+  <text x="56" y="299" fill="#94A3B8" font-size="11">Piłka nożna • Ekstraklasa • Marża 4.1%</text>
+  <text x="312" y="288" fill="#F8FAFC" font-size="13.5" font-weight="700" font-family="JetBrains Mono, monospace">1.82</text>
+  <text x="380" y="288" fill="#CBD5E1" font-size="13" font-family="JetBrains Mono, monospace">61.4%</text>
+  <rect x="462" y="270" width="76" height="26" rx="6" fill="#064E3B" stroke="#10B981" stroke-width="1"/>
+  <text x="500" y="287" text-anchor="middle" fill="#10B981" font-size="11.5" font-weight="700" font-family="JetBrains Mono, monospace">+4.8%</text>
+
+  <!-- Row 2 -->
+  <line x1="44" y1="378" x2="552" y2="378" stroke="#23324D" stroke-width="1"/>
+  <text x="56" y="342" fill="#F8FAFC" font-size="13" font-weight="600">Zawodnik A — Zawodnik B (1)</text>
+  <text x="56" y="361" fill="#94A3B8" font-size="11">Tenis ziemny • ATP Hard • Markov 78%</text>
+  <text x="312" y="350" fill="#F8FAFC" font-size="13.5" font-weight="700" font-family="JetBrains Mono, monospace">1.60</text>
+  <text x="380" y="350" fill="#CBD5E1" font-size="13" font-family="JetBrains Mono, monospace">67.8%</text>
+  <rect x="462" y="332" width="76" height="26" rx="6" fill="#064E3B" stroke="#10B981" stroke-width="1"/>
+  <text x="500" y="349" text-anchor="middle" fill="#10B981" font-size="11.5" font-weight="700" font-family="JetBrains Mono, monospace">+3.9%</text>
+
+  <!-- Row 3 -->
+  <line x1="44" y1="440" x2="552" y2="440" stroke="#23324D" stroke-width="1"/>
+  <text x="56" y="404" fill="#F8FAFC" font-size="13" font-weight="600">Gracz X — Gracz Y (-1.5 seta)</text>
+  <text x="56" y="423" fill="#F59E0B" font-size="11">Tenis stołowy • TT Elite • Bo5 Glicko-2</text>
+  <text x="312" y="412" fill="#F8FAFC" font-size="13.5" font-weight="700" font-family="JetBrains Mono, monospace">1.74</text>
+  <text x="380" y="412" fill="#CBD5E1" font-size="13" font-family="JetBrains Mono, monospace">62.5%</text>
+  <rect x="462" y="394" width="76" height="26" rx="6" fill="#064E3B" stroke="#10B981" stroke-width="1"/>
+  <text x="500" y="411" text-anchor="middle" fill="#10B981" font-size="11.5" font-weight="700" font-family="JetBrains Mono, monospace">+4.2%</text>
+
+  <!-- Row 4 (Negative EV example for realism) -->
+  <line x1="44" y1="502" x2="552" y2="502" stroke="#23324D" stroke-width="1"/>
+  <text x="56" y="466" fill="#F8FAFC" font-size="13" font-weight="600">Anwil — Trefl Sopot (+4.5 pkt)</text>
+  <text x="56" y="485" fill="#94A3B8" font-size="11">Koszykówka • PLK • Marża 5.8%</text>
+  <text x="312" y="474" fill="#F8FAFC" font-size="13.5" font-weight="700" font-family="JetBrains Mono, monospace">1.85</text>
+  <text x="380" y="474" fill="#CBD5E1" font-size="13" font-family="JetBrains Mono, monospace">51.2%</text>
+  <rect x="462" y="456" width="76" height="26" rx="6" fill="#2A161B" stroke="#F87171" stroke-width="1"/>
+  <text x="500" y="473" text-anchor="middle" fill="#F87171" font-size="11.5" font-weight="700" font-family="JetBrains Mono, monospace">-5.3%</text>
+
+  <!-- Row 5 -->
+  <line x1="44" y1="564" x2="552" y2="564" stroke="#23324D" stroke-width="1"/>
+  <text x="56" y="528" fill="#F8FAFC" font-size="13" font-weight="600">ZAKSA — Jastrzębski (+1.5 seta)</text>
+  <text x="56" y="547" fill="#94A3B8" font-size="11">Siatkówka • PlusLiga • Markov 25/15</text>
+  <text x="312" y="536" fill="#F8FAFC" font-size="13.5" font-weight="700" font-family="JetBrains Mono, monospace">1.68</text>
+  <text x="380" y="536" fill="#CBD5E1" font-size="13" font-family="JetBrains Mono, monospace">64.0%</text>
+  <rect x="462" y="518" width="76" height="26" rx="6" fill="#064E3B" stroke="#10B981" stroke-width="1"/>
+  <text x="500" y="535" text-anchor="middle" fill="#10B981" font-size="11.5" font-weight="700" font-family="JetBrains Mono, monospace">+2.6%</text>
+
+  <!-- Calibration Footer Note -->
+  <rect x="44" y="654" width="508" height="54" rx="10" fill="#0F1624" stroke="#23324D" stroke-width="1"/>
+  <text x="60" y="677" fill="#CBD5E1" font-size="11.5">Skalibrowano metodą Shin (usunięcie marży) + Dixon-Coles / Glicko-2.</text>
+  <text x="60" y="696" fill="#94A3B8" font-size="11">Uwaga: wartości przykładowe (szablon UI) — nie stanowią porady inwestycyjnej.</text>
+
+  <!-- Middle Panel: Probability Distribution Chart -->
+  <rect x="584" y="156" width="288" height="572" rx="14" fill="#131C2E" stroke="#23324D" stroke-width="1"/>
+  <text x="604" y="188" fill="#F8FAFC" font-size="14.5" font-weight="700">ROZKŁAD WYNIKÓW</text>
+  <text x="604" y="207" fill="#94A3B8" font-size="11.5">Macierz Poissona (Lech — Raków)</text>
+
+  <!-- Bar chart -->
+  <line x1="612" y1="456" x2="848" y2="456" stroke="#23324D" stroke-width="1"/>
+  <rect x="622" y="376" width="24" height="80" rx="4" fill="#047857"/>
+  <rect x="656" y="316" width="24" height="140" rx="4" fill="#0D9488"/>
+  <rect x="690" y="258" width="24" height="198" rx="4" fill="#10B981"/>
+  <rect x="724" y="288" width="24" height="168" rx="4" fill="#10B981"/>
+  <rect x="758" y="348" width="24" height="108" rx="4" fill="#0D9488"/>
+  <rect x="792" y="396" width="24" height="60" rx="4" fill="#047857"/>
+  <rect x="826" y="424" width="20" height="32" rx="4" fill="#1B263B"/>
+
+  <text x="634" y="474" text-anchor="middle" fill="#94A3B8" font-size="10.5" font-family="JetBrains Mono, monospace">0-1</text>
+  <text x="668" y="474" text-anchor="middle" fill="#94A3B8" font-size="10.5" font-family="JetBrains Mono, monospace">1-1</text>
+  <text x="702" y="474" text-anchor="middle" fill="#10B981" font-size="10.5" font-weight="700" font-family="JetBrains Mono, monospace">2-1</text>
+  <text x="736" y="474" text-anchor="middle" fill="#CBD5E1" font-size="10.5" font-family="JetBrains Mono, monospace">2-0</text>
+  <text x="770" y="474" text-anchor="middle" fill="#94A3B8" font-size="10.5" font-family="JetBrains Mono, monospace">1-2</text>
+  <text x="804" y="474" text-anchor="middle" fill="#94A3B8" font-size="10.5" font-family="JetBrains Mono, monospace">3-1</text>
+  <text x="836" y="474" text-anchor="middle" fill="#94A3B8" font-size="10.5" font-family="JetBrains Mono, monospace">3+</text>
+
+  <!-- Fact metrics inside middle card -->
+  <rect x="604" y="504" width="248" height="204" rx="10" fill="#0F1624" stroke="#23324D" stroke-width="1"/>
+  <text x="620" y="530" fill="#F8FAFC" font-size="12.5" font-weight="700">METRYKI FAKTYCZNE</text>
+  <text x="620" y="558" fill="#94A3B8" font-size="11.5">xG gosp. / wyjazd:</text>
+  <text x="836" y="558" text-anchor="end" fill="#F8FAFC" font-size="12" font-family="JetBrains Mono, monospace">1.64 / 1.18</text>
+  <text x="620" y="584" fill="#94A3B8" font-size="11.5">Marża bukmachera:</text>
+  <text x="836" y="584" text-anchor="end" fill="#CBD5E1" font-size="12" font-family="JetBrains Mono, monospace">4.12%</text>
+  <text x="620" y="610" fill="#94A3B8" font-size="11.5">Prawd. bez marży:</text>
+  <text x="836" y="610" text-anchor="end" fill="#CBD5E1" font-size="12" font-family="JetBrains Mono, monospace">56.1%</text>
+  <text x="620" y="636" fill="#94A3B8" font-size="11.5">Prawd. modelu:</text>
+  <text x="836" y="636" text-anchor="end" fill="#10B981" font-size="12.5" font-weight="700" font-family="JetBrains Mono, monospace">61.4%</text>
+  <text x="620" y="662" fill="#94A3B8" font-size="11.5">Brier Score (liga):</text>
+  <text x="836" y="662" text-anchor="end" fill="#CBD5E1" font-size="12" font-family="JetBrains Mono, monospace">0.184</text>
+  <text x="620" y="688" fill="#94A3B8" font-size="11.5">Rekomendacja Kelly:</text>
+  <text x="836" y="688" text-anchor="end" fill="#F59E0B" font-size="12" font-weight="700" font-family="JetBrains Mono, monospace">1.9% budżetu</text>
+
+  <!-- Right Panel: Slip Builder (30% Surface) -->
+  <rect x="888" y="88" width="364" height="640" rx="16" fill="#131C2E" stroke="#23324D" stroke-width="1.5"/>
+  <text x="912" y="122" fill="#F8FAFC" font-size="16" font-weight="700">GENERATOR KUPONU</text>
+  <text x="912" y="142" fill="#94A3B8" font-size="11.5">Personalizacja ryzyka + matematyka podatkowa PL</text>
+
+  <!-- Risk Selector -->
+  <rect x="912" y="160" width="316" height="36" rx="8" fill="#0F1624" stroke="#23324D" stroke-width="1"/>
+  <rect x="916" y="164" width="100" height="28" rx="6" fill="#131C2E"/>
+  <text x="966" y="182" text-anchor="middle" fill="#94A3B8" font-size="11">Konserwatywny</text>
+  <rect x="1020" y="164" width="100" height="28" rx="6" fill="#064E3B" stroke="#10B981" stroke-width="1"/>
+  <text x="1070" y="182" text-anchor="middle" fill="#10B981" font-size="11" font-weight="700">Zbalansowany</text>
+  <rect x="1124" y="164" width="100" height="28" rx="6" fill="#131C2E"/>
+  <text x="1174" y="182" text-anchor="middle" fill="#94A3B8" font-size="11">Value / AKO</text>
+
+  <!-- Selected Legs -->
+  <rect x="912" y="212" width="316" height="62" rx="10" fill="#1B263B" stroke="#23324D" stroke-width="1"/>
+  <text x="926" y="234" fill="#F8FAFC" font-size="12.5" font-weight="600">1. Lech — Raków (Over 2.25)</text>
+  <text x="926" y="256" fill="#10B981" font-size="11.5" font-family="JetBrains Mono, monospace">P: 61.4% | Kurs: 1.82 | +4.8% EV</text>
+
+  <rect x="912" y="284" width="316" height="62" rx="10" fill="#1B263B" stroke="#23324D" stroke-width="1"/>
+  <text x="926" y="306" fill="#F8FAFC" font-size="12.5" font-weight="600">2. ATP Hard: Zawodnik A (1)</text>
+  <text x="926" y="328" fill="#10B981" font-size="11.5" font-family="JetBrains Mono, monospace">P: 67.8% | Kurs: 1.60 | +3.9% EV</text>
+
+  <rect x="912" y="356" width="316" height="62" rx="10" fill="#1B263B" stroke="#23324D" stroke-width="1"/>
+  <text x="926" y="378" fill="#F8FAFC" font-size="12.5" font-weight="600">3. TT Elite: Gracz X (-1.5 seta)</text>
+  <text x="926" y="400" fill="#10B981" font-size="11.5" font-family="JetBrains Mono, monospace">P: 62.5% | Kurs: 1.74 | +4.2% EV</text>
+
+  <!-- Probability Gauge Circle -->
+  <circle cx="1070" cy="488" r="50" fill="none" stroke="#1B263B" stroke-width="10"/>
+  <circle cx="1070" cy="488" r="50" fill="none" stroke="#10B981" stroke-width="10" stroke-dasharray="82 232" stroke-linecap="round" transform="rotate(-90 1070 488)"/>
+  <text x="1070" y="486" text-anchor="middle" fill="#F8FAFC" font-size="20" font-weight="800" font-family="JetBrains Mono, monospace">26.0%</text>
+  <text x="1070" y="505" text-anchor="middle" fill="#94A3B8" font-size="10.5">Szansa wejścia</text>
+
+  <!-- Tax & Payout Breakdown -->
+  <rect x="912" y="556" width="316" height="92" rx="10" fill="#0F1624" stroke="#23324D" stroke-width="1"/>
+  <text x="928" y="579" fill="#94A3B8" font-size="11.5">Kurs brutto (AKO 3 zdarzenia):</text>
+  <text x="1212" y="579" text-anchor="end" fill="#F8FAFC" font-size="12.5" font-weight="700" font-family="JetBrains Mono, monospace">5.07</text>
+  <text x="928" y="601" fill="#94A3B8" font-size="11.5">Współczynnik podatku PL:</text>
+  <text x="1212" y="601" text-anchor="end" fill="#CBD5E1" font-size="12.5" font-family="JetBrains Mono, monospace">0.88× (4.46 netto)</text>
+  <text x="928" y="623" fill="#94A3B8" font-size="11.5">Stawka: 100 PLN → Wygrana:</text>
+  <text x="1212" y="623" text-anchor="end" fill="#10B981" font-size="13" font-weight="700" font-family="JetBrains Mono, monospace">446.16 PLN</text>
+
+  <!-- Primary Alpha Gold CTA (10% Accent) -->
+  <rect x="912" y="662" width="316" height="46" rx="10" fill="#F59E0B"/>
+  <text x="1070" y="690" text-anchor="middle" fill="#0B0F19" font-size="14" font-weight="800">GENERUJ OPTYMALNY KUPON</text>
+</svg>

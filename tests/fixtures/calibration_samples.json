@@ -1,0 +1,1082 @@
+[
+  {
+    "id": 1,
+    "sport": "football",
+    "p_model": 0.62,
+    "closing_odds_devigged": 1.613,
+    "bet_odds": 1.59,
+    "outcome": 1,
+    "clv": -0.0143
+  },
+  {
+    "id": 2,
+    "sport": "basketball",
+    "p_model": 0.412,
+    "closing_odds_devigged": 2.427,
+    "bet_odds": 2.56,
+    "outcome": 0,
+    "clv": 0.0548
+  },
+  {
+    "id": 3,
+    "sport": "tennis",
+    "p_model": 0.746,
+    "closing_odds_devigged": 1.34,
+    "bet_odds": 1.33,
+    "outcome": 1,
+    "clv": -0.0075
+  },
+  {
+    "id": 4,
+    "sport": "hockey",
+    "p_model": 0.315,
+    "closing_odds_devigged": 3.175,
+    "bet_odds": 3.18,
+    "outcome": 0,
+    "clv": 0.0016
+  },
+  {
+    "id": 5,
+    "sport": "football",
+    "p_model": 0.313,
+    "closing_odds_devigged": 3.195,
+    "bet_odds": 3.19,
+    "outcome": 0,
+    "clv": -0.0016
+  },
+  {
+    "id": 6,
+    "sport": "basketball",
+    "p_model": 0.572,
+    "closing_odds_devigged": 1.748,
+    "bet_odds": 1.75,
+    "outcome": 0,
+    "clv": 0.0011
+  },
+  {
+    "id": 7,
+    "sport": "tennis",
+    "p_model": 0.705,
+    "closing_odds_devigged": 1.418,
+    "bet_odds": 1.39,
+    "outcome": 0,
+    "clv": -0.0197
+  },
+  {
+    "id": 8,
+    "sport": "hockey",
+    "p_model": 0.649,
+    "closing_odds_devigged": 1.541,
+    "bet_odds": 1.56,
+    "outcome": 1,
+    "clv": 0.0123
+  },
+  {
+    "id": 9,
+    "sport": "football",
+    "p_model": 0.779,
+    "closing_odds_devigged": 1.284,
+    "bet_odds": 1.3,
+    "outcome": 1,
+    "clv": 0.0125
+  },
+  {
+    "id": 10,
+    "sport": "basketball",
+    "p_model": 0.348,
+    "closing_odds_devigged": 2.874,
+    "bet_odds": 3.06,
+    "outcome": 0,
+    "clv": 0.0647
+  },
+  {
+    "id": 11,
+    "sport": "tennis",
+    "p_model": 0.704,
+    "closing_odds_devigged": 1.42,
+    "bet_odds": 1.5,
+    "outcome": 1,
+    "clv": 0.0563
+  },
+  {
+    "id": 12,
+    "sport": "hockey",
+    "p_model": 0.787,
+    "closing_odds_devigged": 1.271,
+    "bet_odds": 1.29,
+    "outcome": 1,
+    "clv": 0.0149
+  },
+  {
+    "id": 13,
+    "sport": "football",
+    "p_model": 0.715,
+    "closing_odds_devigged": 1.399,
+    "bet_odds": 1.46,
+    "outcome": 0,
+    "clv": 0.0436
+  },
+  {
+    "id": 14,
+    "sport": "basketball",
+    "p_model": 0.589,
+    "closing_odds_devigged": 1.698,
+    "bet_odds": 1.78,
+    "outcome": 1,
+    "clv": 0.0483
+  },
+  {
+    "id": 15,
+    "sport": "tennis",
+    "p_model": 0.414,
+    "closing_odds_devigged": 2.415,
+    "bet_odds": 2.44,
+    "outcome": 1,
+    "clv": 0.0104
+  },
+  {
+    "id": 16,
+    "sport": "hockey",
+    "p_model": 0.416,
+    "closing_odds_devigged": 2.404,
+    "bet_odds": 2.38,
+    "outcome": 1,
+    "clv": -0.01
+  },
+  {
+    "id": 17,
+    "sport": "football",
+    "p_model": 0.618,
+    "closing_odds_devigged": 1.618,
+    "bet_odds": 1.64,
+    "outcome": 1,
+    "clv": 0.0136
+  },
+  {
+    "id": 18,
+    "sport": "basketball",
+    "p_model": 0.405,
+    "closing_odds_devigged": 2.469,
+    "bet_odds": 2.49,
+    "outcome": 0,
+    "clv": 0.0085
+  },
+  {
+    "id": 19,
+    "sport": "tennis",
+    "p_model": 0.624,
+    "closing_odds_devigged": 1.603,
+    "bet_odds": 1.67,
+    "outcome": 1,
+    "clv": 0.0418
+  },
+  {
+    "id": 20,
+    "sport": "hockey",
+    "p_model": 0.665,
+    "closing_odds_devigged": 1.504,
+    "bet_odds": 1.5,
+    "outcome": 1,
+    "clv": -0.0027
+  },
+  {
+    "id": 21,
+    "sport": "football",
+    "p_model": 0.795,
+    "closing_odds_devigged": 1.258,
+    "bet_odds": 1.31,
+    "outcome": 1,
+    "clv": 0.0413
+  },
+  {
+    "id": 22,
+    "sport": "basketball",
+    "p_model": 0.642,
+    "closing_odds_devigged": 1.558,
+    "bet_odds": 1.66,
+    "outcome": 0,
+    "clv": 0.0655
+  },
+  {
+    "id": 23,
+    "sport": "tennis",
+    "p_model": 0.415,
+    "closing_odds_devigged": 2.41,
+    "bet_odds": 2.37,
+    "outcome": 1,
+    "clv": -0.0166
+  },
+  {
+    "id": 24,
+    "sport": "hockey",
+    "p_model": 0.434,
+    "closing_odds_devigged": 2.304,
+    "bet_odds": 2.31,
+    "outcome": 0,
+    "clv": 0.0026
+  },
+  {
+    "id": 25,
+    "sport": "football",
+    "p_model": 0.738,
+    "closing_odds_devigged": 1.355,
+    "bet_odds": 1.37,
+    "outcome": 1,
+    "clv": 0.0111
+  },
+  {
+    "id": 26,
+    "sport": "basketball",
+    "p_model": 0.498,
+    "closing_odds_devigged": 2.008,
+    "bet_odds": 2.15,
+    "outcome": 1,
+    "clv": 0.0707
+  },
+  {
+    "id": 27,
+    "sport": "tennis",
+    "p_model": 0.432,
+    "closing_odds_devigged": 2.315,
+    "bet_odds": 2.33,
+    "outcome": 0,
+    "clv": 0.0065
+  },
+  {
+    "id": 28,
+    "sport": "hockey",
+    "p_model": 0.431,
+    "closing_odds_devigged": 2.32,
+    "bet_odds": 2.41,
+    "outcome": 0,
+    "clv": 0.0388
+  },
+  {
+    "id": 29,
+    "sport": "football",
+    "p_model": 0.5,
+    "closing_odds_devigged": 2.0,
+    "bet_odds": 2.0,
+    "outcome": 0,
+    "clv": 0.0
+  },
+  {
+    "id": 30,
+    "sport": "basketball",
+    "p_model": 0.555,
+    "closing_odds_devigged": 1.802,
+    "bet_odds": 1.78,
+    "outcome": 1,
+    "clv": -0.0122
+  },
+  {
+    "id": 31,
+    "sport": "tennis",
+    "p_model": 0.355,
+    "closing_odds_devigged": 2.817,
+    "bet_odds": 2.94,
+    "outcome": 0,
+    "clv": 0.0437
+  },
+  {
+    "id": 32,
+    "sport": "hockey",
+    "p_model": 0.511,
+    "closing_odds_devigged": 1.957,
+    "bet_odds": 1.93,
+    "outcome": 1,
+    "clv": -0.0138
+  },
+  {
+    "id": 33,
+    "sport": "football",
+    "p_model": 0.798,
+    "closing_odds_devigged": 1.253,
+    "bet_odds": 1.29,
+    "outcome": 0,
+    "clv": 0.0295
+  },
+  {
+    "id": 34,
+    "sport": "basketball",
+    "p_model": 0.73,
+    "closing_odds_devigged": 1.37,
+    "bet_odds": 1.34,
+    "outcome": 1,
+    "clv": -0.0219
+  },
+  {
+    "id": 35,
+    "sport": "tennis",
+    "p_model": 0.641,
+    "closing_odds_devigged": 1.56,
+    "bet_odds": 1.61,
+    "outcome": 1,
+    "clv": 0.0321
+  },
+  {
+    "id": 36,
+    "sport": "hockey",
+    "p_model": 0.62,
+    "closing_odds_devigged": 1.613,
+    "bet_odds": 1.6,
+    "outcome": 1,
+    "clv": -0.0081
+  },
+  {
+    "id": 37,
+    "sport": "football",
+    "p_model": 0.527,
+    "closing_odds_devigged": 1.898,
+    "bet_odds": 2.04,
+    "outcome": 0,
+    "clv": 0.0748
+  },
+  {
+    "id": 38,
+    "sport": "basketball",
+    "p_model": 0.432,
+    "closing_odds_devigged": 2.315,
+    "bet_odds": 2.38,
+    "outcome": 1,
+    "clv": 0.0281
+  },
+  {
+    "id": 39,
+    "sport": "tennis",
+    "p_model": 0.756,
+    "closing_odds_devigged": 1.323,
+    "bet_odds": 1.41,
+    "outcome": 1,
+    "clv": 0.0658
+  },
+  {
+    "id": 40,
+    "sport": "hockey",
+    "p_model": 0.619,
+    "closing_odds_devigged": 1.616,
+    "bet_odds": 1.68,
+    "outcome": 1,
+    "clv": 0.0396
+  },
+  {
+    "id": 41,
+    "sport": "football",
+    "p_model": 0.681,
+    "closing_odds_devigged": 1.468,
+    "bet_odds": 1.52,
+    "outcome": 0,
+    "clv": 0.0354
+  },
+  {
+    "id": 42,
+    "sport": "basketball",
+    "p_model": 0.565,
+    "closing_odds_devigged": 1.77,
+    "bet_odds": 1.73,
+    "outcome": 1,
+    "clv": -0.0226
+  },
+  {
+    "id": 43,
+    "sport": "tennis",
+    "p_model": 0.31,
+    "closing_odds_devigged": 3.226,
+    "bet_odds": 3.46,
+    "outcome": 0,
+    "clv": 0.0725
+  },
+  {
+    "id": 44,
+    "sport": "hockey",
+    "p_model": 0.716,
+    "closing_odds_devigged": 1.397,
+    "bet_odds": 1.41,
+    "outcome": 1,
+    "clv": 0.0093
+  },
+  {
+    "id": 45,
+    "sport": "football",
+    "p_model": 0.739,
+    "closing_odds_devigged": 1.353,
+    "bet_odds": 1.45,
+    "outcome": 1,
+    "clv": 0.0717
+  },
+  {
+    "id": 46,
+    "sport": "basketball",
+    "p_model": 0.543,
+    "closing_odds_devigged": 1.842,
+    "bet_odds": 1.82,
+    "outcome": 0,
+    "clv": -0.0119
+  },
+  {
+    "id": 47,
+    "sport": "tennis",
+    "p_model": 0.683,
+    "closing_odds_devigged": 1.464,
+    "bet_odds": 1.45,
+    "outcome": 1,
+    "clv": -0.0096
+  },
+  {
+    "id": 48,
+    "sport": "hockey",
+    "p_model": 0.575,
+    "closing_odds_devigged": 1.739,
+    "bet_odds": 1.75,
+    "outcome": 0,
+    "clv": 0.0063
+  },
+  {
+    "id": 49,
+    "sport": "football",
+    "p_model": 0.512,
+    "closing_odds_devigged": 1.953,
+    "bet_odds": 1.95,
+    "outcome": 0,
+    "clv": -0.0015
+  },
+  {
+    "id": 50,
+    "sport": "basketball",
+    "p_model": 0.665,
+    "closing_odds_devigged": 1.504,
+    "bet_odds": 1.5,
+    "outcome": 1,
+    "clv": -0.0027
+  },
+  {
+    "id": 51,
+    "sport": "tennis",
+    "p_model": 0.798,
+    "closing_odds_devigged": 1.253,
+    "bet_odds": 1.31,
+    "outcome": 1,
+    "clv": 0.0455
+  },
+  {
+    "id": 52,
+    "sport": "hockey",
+    "p_model": 0.559,
+    "closing_odds_devigged": 1.789,
+    "bet_odds": 1.77,
+    "outcome": 1,
+    "clv": -0.0106
+  },
+  {
+    "id": 53,
+    "sport": "football",
+    "p_model": 0.469,
+    "closing_odds_devigged": 2.132,
+    "bet_odds": 2.22,
+    "outcome": 1,
+    "clv": 0.0413
+  },
+  {
+    "id": 54,
+    "sport": "basketball",
+    "p_model": 0.41,
+    "closing_odds_devigged": 2.439,
+    "bet_odds": 2.41,
+    "outcome": 0,
+    "clv": -0.0119
+  },
+  {
+    "id": 55,
+    "sport": "tennis",
+    "p_model": 0.414,
+    "closing_odds_devigged": 2.415,
+    "bet_odds": 2.59,
+    "outcome": 0,
+    "clv": 0.0725
+  },
+  {
+    "id": 56,
+    "sport": "hockey",
+    "p_model": 0.335,
+    "closing_odds_devigged": 2.985,
+    "bet_odds": 3.0,
+    "outcome": 0,
+    "clv": 0.005
+  },
+  {
+    "id": 57,
+    "sport": "football",
+    "p_model": 0.407,
+    "closing_odds_devigged": 2.457,
+    "bet_odds": 2.44,
+    "outcome": 0,
+    "clv": -0.0069
+  },
+  {
+    "id": 58,
+    "sport": "basketball",
+    "p_model": 0.586,
+    "closing_odds_devigged": 1.706,
+    "bet_odds": 1.75,
+    "outcome": 0,
+    "clv": 0.0258
+  },
+  {
+    "id": 59,
+    "sport": "tennis",
+    "p_model": 0.704,
+    "closing_odds_devigged": 1.42,
+    "bet_odds": 1.42,
+    "outcome": 1,
+    "clv": 0.0
+  },
+  {
+    "id": 60,
+    "sport": "hockey",
+    "p_model": 0.516,
+    "closing_odds_devigged": 1.938,
+    "bet_odds": 1.98,
+    "outcome": 1,
+    "clv": 0.0217
+  },
+  {
+    "id": 61,
+    "sport": "football",
+    "p_model": 0.665,
+    "closing_odds_devigged": 1.504,
+    "bet_odds": 1.57,
+    "outcome": 0,
+    "clv": 0.0439
+  },
+  {
+    "id": 62,
+    "sport": "basketball",
+    "p_model": 0.349,
+    "closing_odds_devigged": 2.865,
+    "bet_odds": 2.92,
+    "outcome": 1,
+    "clv": 0.0192
+  },
+  {
+    "id": 63,
+    "sport": "tennis",
+    "p_model": 0.731,
+    "closing_odds_devigged": 1.368,
+    "bet_odds": 1.37,
+    "outcome": 1,
+    "clv": 0.0015
+  },
+  {
+    "id": 64,
+    "sport": "hockey",
+    "p_model": 0.524,
+    "closing_odds_devigged": 1.908,
+    "bet_odds": 1.95,
+    "outcome": 1,
+    "clv": 0.022
+  },
+  {
+    "id": 65,
+    "sport": "football",
+    "p_model": 0.425,
+    "closing_odds_devigged": 2.353,
+    "bet_odds": 2.52,
+    "outcome": 0,
+    "clv": 0.071
+  },
+  {
+    "id": 66,
+    "sport": "basketball",
+    "p_model": 0.731,
+    "closing_odds_devigged": 1.368,
+    "bet_odds": 1.42,
+    "outcome": 1,
+    "clv": 0.038
+  },
+  {
+    "id": 67,
+    "sport": "tennis",
+    "p_model": 0.8,
+    "closing_odds_devigged": 1.25,
+    "bet_odds": 1.33,
+    "outcome": 0,
+    "clv": 0.064
+  },
+  {
+    "id": 68,
+    "sport": "hockey",
+    "p_model": 0.763,
+    "closing_odds_devigged": 1.311,
+    "bet_odds": 1.4,
+    "outcome": 1,
+    "clv": 0.0679
+  },
+  {
+    "id": 69,
+    "sport": "football",
+    "p_model": 0.543,
+    "closing_odds_devigged": 1.842,
+    "bet_odds": 1.84,
+    "outcome": 1,
+    "clv": -0.0011
+  },
+  {
+    "id": 70,
+    "sport": "basketball",
+    "p_model": 0.329,
+    "closing_odds_devigged": 3.04,
+    "bet_odds": 3.09,
+    "outcome": 0,
+    "clv": 0.0164
+  },
+  {
+    "id": 71,
+    "sport": "tennis",
+    "p_model": 0.433,
+    "closing_odds_devigged": 2.309,
+    "bet_odds": 2.44,
+    "outcome": 0,
+    "clv": 0.0567
+  },
+  {
+    "id": 72,
+    "sport": "hockey",
+    "p_model": 0.512,
+    "closing_odds_devigged": 1.953,
+    "bet_odds": 2.1,
+    "outcome": 0,
+    "clv": 0.0753
+  },
+  {
+    "id": 73,
+    "sport": "football",
+    "p_model": 0.578,
+    "closing_odds_devigged": 1.73,
+    "bet_odds": 1.82,
+    "outcome": 1,
+    "clv": 0.052
+  },
+  {
+    "id": 74,
+    "sport": "basketball",
+    "p_model": 0.448,
+    "closing_odds_devigged": 2.232,
+    "bet_odds": 2.4,
+    "outcome": 0,
+    "clv": 0.0753
+  },
+  {
+    "id": 75,
+    "sport": "tennis",
+    "p_model": 0.571,
+    "closing_odds_devigged": 1.751,
+    "bet_odds": 1.85,
+    "outcome": 1,
+    "clv": 0.0565
+  },
+  {
+    "id": 76,
+    "sport": "hockey",
+    "p_model": 0.592,
+    "closing_odds_devigged": 1.689,
+    "bet_odds": 1.74,
+    "outcome": 0,
+    "clv": 0.0302
+  },
+  {
+    "id": 77,
+    "sport": "football",
+    "p_model": 0.379,
+    "closing_odds_devigged": 2.639,
+    "bet_odds": 2.84,
+    "outcome": 1,
+    "clv": 0.0762
+  },
+  {
+    "id": 78,
+    "sport": "basketball",
+    "p_model": 0.393,
+    "closing_odds_devigged": 2.545,
+    "bet_odds": 2.65,
+    "outcome": 0,
+    "clv": 0.0413
+  },
+  {
+    "id": 79,
+    "sport": "tennis",
+    "p_model": 0.418,
+    "closing_odds_devigged": 2.392,
+    "bet_odds": 2.37,
+    "outcome": 0,
+    "clv": -0.0092
+  },
+  {
+    "id": 80,
+    "sport": "hockey",
+    "p_model": 0.423,
+    "closing_odds_devigged": 2.364,
+    "bet_odds": 2.46,
+    "outcome": 0,
+    "clv": 0.0406
+  },
+  {
+    "id": 81,
+    "sport": "football",
+    "p_model": 0.51,
+    "closing_odds_devigged": 1.961,
+    "bet_odds": 2.04,
+    "outcome": 0,
+    "clv": 0.0403
+  },
+  {
+    "id": 82,
+    "sport": "basketball",
+    "p_model": 0.767,
+    "closing_odds_devigged": 1.304,
+    "bet_odds": 1.3,
+    "outcome": 1,
+    "clv": -0.0031
+  },
+  {
+    "id": 83,
+    "sport": "tennis",
+    "p_model": 0.419,
+    "closing_odds_devigged": 2.387,
+    "bet_odds": 2.43,
+    "outcome": 0,
+    "clv": 0.018
+  },
+  {
+    "id": 84,
+    "sport": "hockey",
+    "p_model": 0.45,
+    "closing_odds_devigged": 2.222,
+    "bet_odds": 2.25,
+    "outcome": 0,
+    "clv": 0.0126
+  },
+  {
+    "id": 85,
+    "sport": "football",
+    "p_model": 0.336,
+    "closing_odds_devigged": 2.976,
+    "bet_odds": 3.05,
+    "outcome": 0,
+    "clv": 0.0249
+  },
+  {
+    "id": 86,
+    "sport": "basketball",
+    "p_model": 0.798,
+    "closing_odds_devigged": 1.253,
+    "bet_odds": 1.24,
+    "outcome": 1,
+    "clv": -0.0104
+  },
+  {
+    "id": 87,
+    "sport": "tennis",
+    "p_model": 0.433,
+    "closing_odds_devigged": 2.309,
+    "bet_odds": 2.48,
+    "outcome": 0,
+    "clv": 0.0741
+  },
+  {
+    "id": 88,
+    "sport": "hockey",
+    "p_model": 0.74,
+    "closing_odds_devigged": 1.351,
+    "bet_odds": 1.37,
+    "outcome": 1,
+    "clv": 0.0141
+  },
+  {
+    "id": 89,
+    "sport": "football",
+    "p_model": 0.717,
+    "closing_odds_devigged": 1.395,
+    "bet_odds": 1.46,
+    "outcome": 1,
+    "clv": 0.0466
+  },
+  {
+    "id": 90,
+    "sport": "basketball",
+    "p_model": 0.794,
+    "closing_odds_devigged": 1.259,
+    "bet_odds": 1.32,
+    "outcome": 1,
+    "clv": 0.0485
+  },
+  {
+    "id": 91,
+    "sport": "tennis",
+    "p_model": 0.709,
+    "closing_odds_devigged": 1.41,
+    "bet_odds": 1.42,
+    "outcome": 1,
+    "clv": 0.0071
+  },
+  {
+    "id": 92,
+    "sport": "hockey",
+    "p_model": 0.769,
+    "closing_odds_devigged": 1.3,
+    "bet_odds": 1.29,
+    "outcome": 1,
+    "clv": -0.0077
+  },
+  {
+    "id": 93,
+    "sport": "football",
+    "p_model": 0.354,
+    "closing_odds_devigged": 2.825,
+    "bet_odds": 2.92,
+    "outcome": 1,
+    "clv": 0.0336
+  },
+  {
+    "id": 94,
+    "sport": "basketball",
+    "p_model": 0.602,
+    "closing_odds_devigged": 1.661,
+    "bet_odds": 1.75,
+    "outcome": 1,
+    "clv": 0.0536
+  },
+  {
+    "id": 95,
+    "sport": "tennis",
+    "p_model": 0.617,
+    "closing_odds_devigged": 1.621,
+    "bet_odds": 1.63,
+    "outcome": 1,
+    "clv": 0.0056
+  },
+  {
+    "id": 96,
+    "sport": "hockey",
+    "p_model": 0.753,
+    "closing_odds_devigged": 1.328,
+    "bet_odds": 1.41,
+    "outcome": 1,
+    "clv": 0.0617
+  },
+  {
+    "id": 97,
+    "sport": "football",
+    "p_model": 0.512,
+    "closing_odds_devigged": 1.953,
+    "bet_odds": 1.97,
+    "outcome": 1,
+    "clv": 0.0087
+  },
+  {
+    "id": 98,
+    "sport": "basketball",
+    "p_model": 0.686,
+    "closing_odds_devigged": 1.458,
+    "bet_odds": 1.52,
+    "outcome": 1,
+    "clv": 0.0425
+  },
+  {
+    "id": 99,
+    "sport": "tennis",
+    "p_model": 0.671,
+    "closing_odds_devigged": 1.49,
+    "bet_odds": 1.54,
+    "outcome": 1,
+    "clv": 0.0336
+  },
+  {
+    "id": 100,
+    "sport": "hockey",
+    "p_model": 0.305,
+    "closing_odds_devigged": 3.279,
+    "bet_odds": 3.24,
+    "outcome": 0,
+    "clv": -0.0119
+  },
+  {
+    "id": 101,
+    "sport": "football",
+    "p_model": 0.752,
+    "closing_odds_devigged": 1.33,
+    "bet_odds": 1.38,
+    "outcome": 0,
+    "clv": 0.0376
+  },
+  {
+    "id": 102,
+    "sport": "basketball",
+    "p_model": 0.591,
+    "closing_odds_devigged": 1.692,
+    "bet_odds": 1.68,
+    "outcome": 1,
+    "clv": -0.0071
+  },
+  {
+    "id": 103,
+    "sport": "tennis",
+    "p_model": 0.454,
+    "closing_odds_devigged": 2.203,
+    "bet_odds": 2.36,
+    "outcome": 0,
+    "clv": 0.0713
+  },
+  {
+    "id": 104,
+    "sport": "hockey",
+    "p_model": 0.73,
+    "closing_odds_devigged": 1.37,
+    "bet_odds": 1.47,
+    "outcome": 1,
+    "clv": 0.073
+  },
+  {
+    "id": 105,
+    "sport": "football",
+    "p_model": 0.425,
+    "closing_odds_devigged": 2.353,
+    "bet_odds": 2.33,
+    "outcome": 0,
+    "clv": -0.0098
+  },
+  {
+    "id": 106,
+    "sport": "basketball",
+    "p_model": 0.742,
+    "closing_odds_devigged": 1.348,
+    "bet_odds": 1.38,
+    "outcome": 1,
+    "clv": 0.0237
+  },
+  {
+    "id": 107,
+    "sport": "tennis",
+    "p_model": 0.377,
+    "closing_odds_devigged": 2.653,
+    "bet_odds": 2.85,
+    "outcome": 0,
+    "clv": 0.0743
+  },
+  {
+    "id": 108,
+    "sport": "hockey",
+    "p_model": 0.788,
+    "closing_odds_devigged": 1.269,
+    "bet_odds": 1.35,
+    "outcome": 0,
+    "clv": 0.0638
+  },
+  {
+    "id": 109,
+    "sport": "football",
+    "p_model": 0.312,
+    "closing_odds_devigged": 3.205,
+    "bet_odds": 3.38,
+    "outcome": 0,
+    "clv": 0.0546
+  },
+  {
+    "id": 110,
+    "sport": "basketball",
+    "p_model": 0.765,
+    "closing_odds_devigged": 1.307,
+    "bet_odds": 1.39,
+    "outcome": 0,
+    "clv": 0.0635
+  },
+  {
+    "id": 111,
+    "sport": "tennis",
+    "p_model": 0.705,
+    "closing_odds_devigged": 1.418,
+    "bet_odds": 1.43,
+    "outcome": 0,
+    "clv": 0.0085
+  },
+  {
+    "id": 112,
+    "sport": "hockey",
+    "p_model": 0.354,
+    "closing_odds_devigged": 2.825,
+    "bet_odds": 3.01,
+    "outcome": 0,
+    "clv": 0.0655
+  },
+  {
+    "id": 113,
+    "sport": "football",
+    "p_model": 0.411,
+    "closing_odds_devigged": 2.433,
+    "bet_odds": 2.58,
+    "outcome": 0,
+    "clv": 0.0604
+  },
+  {
+    "id": 114,
+    "sport": "basketball",
+    "p_model": 0.453,
+    "closing_odds_devigged": 2.208,
+    "bet_odds": 2.34,
+    "outcome": 1,
+    "clv": 0.0598
+  },
+  {
+    "id": 115,
+    "sport": "tennis",
+    "p_model": 0.312,
+    "closing_odds_devigged": 3.205,
+    "bet_odds": 3.2,
+    "outcome": 0,
+    "clv": -0.0016
+  },
+  {
+    "id": 116,
+    "sport": "hockey",
+    "p_model": 0.732,
+    "closing_odds_devigged": 1.366,
+    "bet_odds": 1.47,
+    "outcome": 1,
+    "clv": 0.0761
+  },
+  {
+    "id": 117,
+    "sport": "football",
+    "p_model": 0.621,
+    "closing_odds_devigged": 1.61,
+    "bet_odds": 1.64,
+    "outcome": 0,
+    "clv": 0.0186
+  },
+  {
+    "id": 118,
+    "sport": "basketball",
+    "p_model": 0.568,
+    "closing_odds_devigged": 1.761,
+    "bet_odds": 1.89,
+    "outcome": 1,
+    "clv": 0.0733
+  },
+  {
+    "id": 119,
+    "sport": "tennis",
+    "p_model": 0.785,
+    "closing_odds_devigged": 1.274,
+    "bet_odds": 1.27,
+    "outcome": 0,
+    "clv": -0.0031
+  },
+  {
+    "id": 120,
+    "sport": "hockey",
+    "p_model": 0.433,
+    "closing_odds_devigged": 2.309,
+    "bet_odds": 2.29,
+    "outcome": 0,
+    "clv": -0.0082
+  }
+]

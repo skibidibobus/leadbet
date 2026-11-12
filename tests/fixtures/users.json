@@ -1,0 +1,29 @@
+[
+  {
+    "id": "usr_compliant_adult",
+    "name": "Jan Kowalski",
+    "email": "jan.kowalski@example.com",
+    "email_verified": "2026-11-01T12:00:00Z",
+    "image": null,
+    "accepted_terms_18_plus_at": "2026-11-01T12:05:00Z",
+    "accepted_rodo_at": "2026-11-01T12:05:00Z"
+  },
+  {
+    "id": "usr_non_compliant_underage",
+    "name": "Młody Gracz",
+    "email": "mlody.gracz@example.com",
+    "email_verified": "2026-11-05T14:30:00Z",
+    "image": null,
+    "accepted_terms_18_plus_at": null,
+    "accepted_rodo_at": null
+  },
+  {
+    "id": "usr_power_bettor",
+    "name": "Piotr Nowak",
+    "email": "piotr.nowak@example.com",
+    "email_verified": "2026-10-15T09:00:00Z",
+    "image": "https://example.com/avatar.jpg",
+    "accepted_terms_18_plus_at": "2026-10-15T09:02:00Z",
+    "accepted_rodo_at": "2026-10-15T09:02:00Z"
+  }
+]

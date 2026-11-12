@@ -1,0 +1,20 @@
+{
+  "palette": {
+    "canvas_obsidian": { "hex": "#0B0F19", "role": "60% main canvas" },
+    "canvas_midnight": { "hex": "#0F1624", "role": "sub-canvas nested" },
+    "surface_slate": { "hex": "#131C2E", "role": "30% card surface" },
+    "surface_elevated": { "hex": "#1B263B", "role": "modals and headers" },
+    "signal_emerald": { "hex": "#10B981", "role": "10% positive EV and active indicators" },
+    "alpha_amber": { "hex": "#F59E0B", "role": "primary CTA and volatility alert" },
+    "semantic_loss": { "hex": "#F87171", "role": "negative EV indicator" }
+  },
+  "wcag_thresholds": {
+    "normal_text_min_contrast": 4.5,
+    "large_text_min_contrast": 3.0,
+    "ui_component_min_contrast": 3.0
+  },
+  "never_color_alone_rules": {
+    "positive_ev_regex": "^\\+\\d+(\\.\\d+)?%\\s*[▲↑]",
+    "negative_ev_regex": "^-\\d+(\\.\\d+)?%\\s*[▼↓]"
+  }
+}

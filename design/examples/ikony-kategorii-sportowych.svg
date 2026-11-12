@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 420" width="960" height="420" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
+  <!-- 60% Obsidian Background -->
+  <rect width="960" height="420" fill="#0B0F19"/>
+  <text x="44" y="48" fill="#F8FAFC" font-size="20" font-weight="700">IKONY KATEGORII SPORTOWYCH — SYSTEM WEKTOROWY 60-30-10</text>
+  <text x="44" y="72" fill="#94A3B8" font-size="13">Minimalistyczne glify SVG (2px stroke, akcenty #10B981 + węzły #F59E0B na kontenerach #131C2E)</text>
+
+  <!-- Card 1: Piłka nożna -->
+  <rect x="44" y="100" width="136" height="164" rx="14" fill="#131C2E" stroke="#10B981" stroke-width="1.5"/>
+  <circle cx="112" cy="166" r="34" fill="#0F1624" stroke="#10B981" stroke-width="2"/>
+  <polygon points="112,148 127,159 121,177 103,177 97,159" fill="none" stroke="#10B981" stroke-width="1.8"/>
+  <line x1="112" y1="132" x2="112" y2="148" stroke="#047857" stroke-width="1.6"/>
+  <line x1="127" y1="159" x2="144" y2="155" stroke="#047857" stroke-width="1.6"/>
+  <line x1="97" y1="159" x2="80" y2="155" stroke="#047857" stroke-width="1.6"/>
+  <circle cx="136" cy="142" r="4" fill="#F59E0B"/>
+  <text x="112" y="232" text-anchor="middle" fill="#F8FAFC" font-size="13" font-weight="600">Piłka nożna</text>
+  <text x="112" y="250" text-anchor="middle" fill="#94A3B8" font-size="11">Dixon-Coles / xG</text>
+
+  <!-- Card 2: Koszykówka -->
+  <rect x="196" y="100" width="136" height="164" rx="14" fill="#131C2E" stroke="#23324D" stroke-width="1.5"/>
+  <circle cx="264" cy="166" r="34" fill="#0F1624" stroke="#10B981" stroke-width="2"/>
+  <line x1="230" y1="166" x2="298" y2="166" stroke="#047857" stroke-width="1.6"/>
+  <line x1="264" y1="132" x2="264" y2="200" stroke="#047857" stroke-width="1.6"/>
+  <path d="M 240 142 Q 264 166 240 190" fill="none" stroke="#10B981" stroke-width="1.6"/>
+  <path d="M 288 142 Q 264 166 288 190" fill="none" stroke="#10B981" stroke-width="1.6"/>
+  <circle cx="288" cy="142" r="4" fill="#F59E0B"/>
+  <text x="264" y="232" text-anchor="middle" fill="#F8FAFC" font-size="13" font-weight="600">Koszykówka</text>
+  <text x="264" y="250" text-anchor="middle" fill="#94A3B8" font-size="11">Tempo / Spread</text>
+
+  <!-- Card 3: Siatkówka -->
+  <rect x="348" y="100" width="136" height="164" rx="14" fill="#131C2E" stroke="#23324D" stroke-width="1.5"/>
+  <circle cx="416" cy="166" r="34" fill="#0F1624" stroke="#10B981" stroke-width="2"/>
+  <path d="M 390 144 Q 416 164 446 154" fill="none" stroke="#10B981" stroke-width="1.6"/>
+  <path d="M 384 164 Q 416 180 448 172" fill="none" stroke="#047857" stroke-width="1.6"/>
+  <path d="M 412 132 Q 406 166 420 200" fill="none" stroke="#10B981" stroke-width="1.6"/>
+  <circle cx="439" cy="144" r="4" fill="#F59E0B"/>
+  <text x="416" y="232" text-anchor="middle" fill="#F8FAFC" font-size="13" font-weight="600">Siatkówka</text>
+  <text x="416" y="250" text-anchor="middle" fill="#94A3B8" font-size="11">Markov 25/15</text>
+
+  <!-- Card 4: Tenis ziemny -->
+  <rect x="500" y="100" width="136" height="164" rx="14" fill="#131C2E" stroke="#23324D" stroke-width="1.5"/>
+  <circle cx="568" cy="166" r="34" fill="#0F1624" stroke="#10B981" stroke-width="2"/>
+  <path d="M 544 142 C 562 158, 562 174, 544 190" fill="none" stroke="#10B981" stroke-width="2"/>
+  <path d="M 592 142 C 574 158, 574 174, 592 190" fill="none" stroke="#10B981" stroke-width="2"/>
+  <circle cx="568" cy="132" r="4" fill="#F59E0B"/>
+  <text x="568" y="232" text-anchor="middle" fill="#F8FAFC" font-size="13" font-weight="600">Tenis ziemny</text>
+  <text x="568" y="250" text-anchor="middle" fill="#94A3B8" font-size="11">Serve-Hold Markov</text>
+
+  <!-- Card 5: Hokej na lodzie -->
+  <rect x="652" y="100" width="136" height="164" rx="14" fill="#131C2E" stroke="#23324D" stroke-width="1.5"/>
+  <ellipse cx="720" cy="180" rx="28" ry="10" fill="#0F1624" stroke="#10B981" stroke-width="2"/>
+  <path d="M 692 180 L 692 192 C 692 198, 748 198, 748 192 L 748 180" fill="#0F1624" stroke="#10B981" stroke-width="2"/>
+  <line x1="704" y1="158" x2="738" y2="136" stroke="#047857" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="744" cy="142" r="4" fill="#F59E0B"/>
+  <text x="720" y="232" text-anchor="middle" fill="#F8FAFC" font-size="13" font-weight="600">Hokej</text>
+  <text x="720" y="250" text-anchor="middle" fill="#94A3B8" font-size="11">Skellam 60' / OT</text>
+
+  <!-- Card 6: Tenis stołowy -->
+  <rect x="804" y="100" width="112" height="164" rx="14" fill="#131C2E" stroke="#F59E0B" stroke-width="1.5"/>
+  <ellipse cx="854" cy="158" rx="22" ry="26" transform="rotate(-25 854 158)" fill="#0F1624" stroke="#10B981" stroke-width="2"/>
+  <line x1="868" y1="181" x2="880" y2="200" stroke="#10B981" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="888" cy="144" r="7" fill="#0F1624" stroke="#F59E0B" stroke-width="2"/>
+  <path d="M 832 182 Q 860 176 894 182" fill="none" stroke="#047857" stroke-width="1.5" stroke-dasharray="3 3"/>
+  <text x="860" y="232" text-anchor="middle" fill="#F8FAFC" font-size="13" font-weight="600">Tenis stołowy</text>
+  <text x="860" y="250" text-anchor="middle" fill="#F59E0B" font-size="11">Glicko-2 + Bo5</text>
+
+  <!-- Bottom note -->
+  <rect x="44" y="294" width="872" height="92" rx="12" fill="#131C2E" stroke="#23324D" stroke-width="1"/>
+  <text x="68" y="326" fill="#F8FAFC" font-size="14" font-weight="700">Zasady użycia ikonografii na stronie:</text>
+  <text x="68" y="350" fill="#CBD5E1" font-size="12.5">• Stan nieaktywny: obramowanie #23324D, wypełnienie #131C2E, linie ikony #10B981 (30% nasycenia powierzchni).</text>
+  <text x="68" y="370" fill="#CBD5E1" font-size="12.5">• Stan aktywny / filtr wybrany: obramowanie #10B981 (sporty główne) lub #F59E0B (wyróżnik wysokiej zmienności — np. Tenis stołowy).</text>
+</svg>

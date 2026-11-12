@@ -1,0 +1,134 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
+  <!-- 60% Dominant Matte Obsidian Canvas (NO gradients/glows) -->
+  <rect width="1280" height="720" fill="#0B0F19"/>
+
+  <!-- Subtle Technical Swiss Grid Hairlines -->
+  <line x1="64" y1="0" x2="64" y2="720" stroke="#131C2E" stroke-width="1"/>
+  <line x1="640" y1="0" x2="640" y2="720" stroke="#131C2E" stroke-width="1"/>
+  <line x1="1216" y1="0" x2="1216" y2="720" stroke="#131C2E" stroke-width="1"/>
+  <line x1="0" y1="108" x2="1280" y2="108" stroke="#131C2E" stroke-width="1"/>
+  <line x1="0" y1="612" x2="1280" y2="612" stroke="#131C2E" stroke-width="1"/>
+
+  <!-- Left Half: Editorial Hero Copy Space & Pitch Architectural Blueprint Watermark -->
+  <g opacity="0.22">
+    <rect x="64" y="132" width="460" height="440" fill="none" stroke="#23324D" stroke-width="1.2"/>
+    <circle cx="294" cy="352" r="68" fill="none" stroke="#23324D" stroke-width="1.2"/>
+    <line x1="64" y1="352" x2="524" y2="352" stroke="#23324D" stroke-width="1.2"/>
+    <rect x="194" y="132" width="200" height="74" fill="none" stroke="#23324D" stroke-width="1.2"/>
+    <rect x="194" y="498" width="200" height="74" fill="none" stroke="#23324D" stroke-width="1.2"/>
+  </g>
+
+  <!-- Hero Editorial Badge & Copy Placeholder (demonstrating real Hero layout) -->
+  <rect x="88" y="168" width="356" height="30" rx="15" fill="#131C2E" stroke="#23324D" stroke-width="1"/>
+  <circle cx="106" cy="183" r="4" fill="#10B981"/>
+  <text x="118" y="187" fill="#CBD5E1" font-size="11.5" font-weight="600" letter-spacing="0.03em">MATEMATYKA • PODATEK PL • ZERO PRZECZUCIA</text>
+
+  <text x="88" y="264" fill="#F8FAFC" font-size="40" font-weight="800" letter-spacing="-0.03em">Kursy bukmacherskie</text>
+  <text x="88" y="314" fill="#F8FAFC" font-size="40" font-weight="800" letter-spacing="-0.03em">policzone do ostatniego</text>
+  <text x="88" y="364" fill="#10B981" font-size="40" font-weight="800" letter-spacing="-0.03em">punktu procentowego.</text>
+
+  <text x="88" y="418" fill="#94A3B8" font-size="15.5">Od Ekstraklasy po Tenis Stołowy. Usuwamy marżę metodą Shina,</text>
+  <text x="88" y="444" fill="#94A3B8" font-size="15.5">liczymy Dixon-Coles, Markowa i Glicko-2 oraz podajemy dokładną</text>
+  <text x="88" y="470" fill="#94A3B8" font-size="15.5">szansę wejścia kuponu po polskim podatku 0.88×.</text>
+
+  <!-- Primary 10% Alpha Amber CTA + Secondary Slate Button -->
+  <rect x="88" y="514" width="224" height="48" rx="10" fill="#F59E0B"/>
+  <text x="200" y="543" text-anchor="middle" fill="#0B0F19" font-size="14" font-weight="800">GENERUJ KUPON +EV</text>
+
+  <rect x="328" y="514" width="176" height="48" rx="10" fill="#131C2E" stroke="#23324D" stroke-width="1.2"/>
+  <text x="416" y="543" text-anchor="middle" fill="#F8FAFC" font-size="14" font-weight="600">Zobacz metodologię</text>
+
+  <!-- Right Half: Crisp Architectural Quant Cards (30% Surface, 10% Focal Precision) -->
+  <!-- Card 1: Bivariate Poisson Score Matrix (Top Right) -->
+  <rect x="664" y="132" width="528" height="264" rx="14" fill="#131C2E" stroke="#23324D" stroke-width="1.2"/>
+  <text x="688" y="164" fill="#F8FAFC" font-size="14" font-weight="700">MACIERZ DIXON-COLES (DOKŁADNY WYNIK)</text>
+  <text x="688" y="184" fill="#94A3B8" font-size="11.5" font-family="JetBrains Mono, monospace">Piłka nożna • λ_H = 1.64, λ_A = 1.18, ρ = -0.11</text>
+  <rect x="1084" y="148" width="84" height="24" rx="6" fill="#064E3B" stroke="#10B981" stroke-width="1"/>
+  <text x="1126" y="164" text-anchor="middle" fill="#10B981" font-size="11" font-weight="700" font-family="JetBrains Mono, monospace">ΣP = 100%</text>
+
+  <!-- Column headers 0..3 -->
+  <text x="774" y="214" text-anchor="middle" fill="#94A3B8" font-size="11" font-family="JetBrains Mono, monospace">A: 0</text>
+  <text x="862" y="214" text-anchor="middle" fill="#94A3B8" font-size="11" font-family="JetBrains Mono, monospace">A: 1</text>
+  <text x="950" y="214" text-anchor="middle" fill="#94A3B8" font-size="11" font-family="JetBrains Mono, monospace">A: 2</text>
+  <text x="1038" y="214" text-anchor="middle" fill="#94A3B8" font-size="11" font-family="JetBrains Mono, monospace">A: 3+</text>
+
+  <!-- Row 0 -->
+  <text x="706" y="247" fill="#94A3B8" font-size="11" font-family="JetBrains Mono, monospace">H: 0</text>
+  <rect x="736" y="226" width="76" height="32" rx="6" fill="#0F1624" stroke="#23324D" stroke-width="1"/>
+  <text x="774" y="246" text-anchor="middle" fill="#CBD5E1" font-size="11.5" font-family="JetBrains Mono, monospace">6.9%</text>
+  <rect x="824" y="226" width="76" height="32" rx="6" fill="#0F1624" stroke="#23324D" stroke-width="1"/>
+  <text x="862" y="246" text-anchor="middle" fill="#CBD5E1" font-size="11.5" font-family="JetBrains Mono, monospace">7.4%</text>
+  <rect x="912" y="226" width="76" height="32" rx="6" fill="#0F1624" stroke="#23324D" stroke-width="1"/>
+  <text x="950" y="246" text-anchor="middle" fill="#94A3B8" font-size="11.5" font-family="JetBrains Mono, monospace">4.4%</text>
+  <rect x="1000" y="226" width="76" height="32" rx="6" fill="#0F1624" stroke="#23324D" stroke-width="1"/>
+  <text x="1038" y="246" text-anchor="middle" fill="#64748B" font-size="11.5" font-family="JetBrains Mono, monospace">2.1%</text>
+
+  <!-- Row 1 -->
+  <text x="706" y="287" fill="#94A3B8" font-size="11" font-family="JetBrains Mono, monospace">H: 1</text>
+  <rect x="736" y="266" width="76" height="32" rx="6" fill="#047857" fill-opacity="0.45" stroke="#047857" stroke-width="1"/>
+  <text x="774" y="286" text-anchor="middle" fill="#F8FAFC" font-size="11.5" font-weight="600" font-family="JetBrains Mono, monospace">10.4%</text>
+  <rect x="824" y="266" width="76" height="32" rx="6" fill="#047857" fill-opacity="0.65" stroke="#0D9488" stroke-width="1"/>
+  <text x="862" y="286" text-anchor="middle" fill="#F8FAFC" font-size="11.5" font-weight="700" font-family="JetBrains Mono, monospace">12.6%</text>
+  <rect x="912" y="266" width="76" height="32" rx="6" fill="#0F1624" stroke="#23324D" stroke-width="1"/>
+  <text x="950" y="286" text-anchor="middle" fill="#CBD5E1" font-size="11.5" font-family="JetBrains Mono, monospace">7.2%</text>
+  <rect x="1000" y="266" width="76" height="32" rx="6" fill="#0F1624" stroke="#23324D" stroke-width="1"/>
+  <text x="1038" y="286" text-anchor="middle" fill="#94A3B8" font-size="11.5" font-family="JetBrains Mono, monospace">3.5%</text>
+
+  <!-- Row 2 -->
+  <text x="706" y="327" fill="#94A3B8" font-size="11" font-family="JetBrains Mono, monospace">H: 2</text>
+  <rect x="736" y="306" width="76" height="32" rx="6" fill="#047857" fill-opacity="0.55" stroke="#0D9488" stroke-width="1"/>
+  <text x="774" y="326" text-anchor="middle" fill="#F8FAFC" font-size="11.5" font-weight="600" font-family="JetBrains Mono, monospace">11.1%</text>
+  <rect x="824" y="306" width="76" height="32" rx="6" fill="#064E3B" stroke="#10B981" stroke-width="1.5"/>
+  <text x="862" y="326" text-anchor="middle" fill="#10B981" font-size="12" font-weight="800" font-family="JetBrains Mono, monospace">13.8%</text>
+  <rect x="912" y="306" width="76" height="32" rx="6" fill="#0F1624" stroke="#23324D" stroke-width="1"/>
+  <text x="950" y="326" text-anchor="middle" fill="#CBD5E1" font-size="11.5" font-family="JetBrains Mono, monospace">6.8%</text>
+  <rect x="1000" y="306" width="76" height="32" rx="6" fill="#0F1624" stroke="#23324D" stroke-width="1"/>
+  <text x="1038" y="326" text-anchor="middle" fill="#94A3B8" font-size="11.5" font-family="JetBrains Mono, monospace">2.9%</text>
+
+  <!-- Row 3 -->
+  <text x="706" y="367" fill="#94A3B8" font-size="11" font-family="JetBrains Mono, monospace">H: 3+</text>
+  <rect x="736" y="346" width="76" height="32" rx="6" fill="#0F1624" stroke="#23324D" stroke-width="1"/>
+  <text x="774" y="366" text-anchor="middle" fill="#CBD5E1" font-size="11.5" font-family="JetBrains Mono, monospace">5.8%</text>
+  <rect x="824" y="346" width="76" height="32" rx="6" fill="#0F1624" stroke="#23324D" stroke-width="1"/>
+  <text x="862" y="366" text-anchor="middle" fill="#CBD5E1" font-size="11.5" font-family="JetBrains Mono, monospace">6.1%</text>
+  <rect x="912" y="346" width="76" height="32" rx="6" fill="#0F1624" stroke="#23324D" stroke-width="1"/>
+  <text x="950" y="366" text-anchor="middle" fill="#94A3B8" font-size="11.5" font-family="JetBrains Mono, monospace">2.6%</text>
+  <rect x="1000" y="346" width="76" height="32" rx="6" fill="#0F1624" stroke="#23324D" stroke-width="1"/>
+  <text x="1038" y="366" text-anchor="middle" fill="#64748B" font-size="11.5" font-family="JetBrains Mono, monospace">0.9%</text>
+
+  <!-- Card Right Summary inside Matrix -->
+  <text x="1096" y="246" fill="#94A3B8" font-size="10.5" font-weight="700">RYNKI</text>
+  <text x="1096" y="272" fill="#F8FAFC" font-size="12" font-family="JetBrains Mono, monospace">P(1): 48.2%</text>
+  <text x="1096" y="294" fill="#CBD5E1" font-size="12" font-family="JetBrains Mono, monospace">P(X): 26.7%</text>
+  <text x="1096" y="316" fill="#94A3B8" font-size="12" font-family="JetBrains Mono, monospace">P(2): 25.1%</text>
+  <text x="1096" y="352" fill="#10B981" font-size="12" font-weight="700" font-family="JetBrains Mono, monospace">O2.5: 57.4%</text>
+  <text x="1096" y="372" fill="#10B981" font-size="12" font-weight="700" font-family="JetBrains Mono, monospace">BTTS: 54.1%</text>
+
+  <!-- Card 2: Markov & Glicko-2 Table Tennis / Tennis (Bottom Left of Right Grid) -->
+  <rect x="664" y="416" width="276" height="172" rx="14" fill="#131C2E" stroke="#23324D" stroke-width="1.2"/>
+  <text x="684" y="446" fill="#F8FAFC" font-size="13" font-weight="700">TENIS STOŁOWY • GLICKO-2</text>
+  <text x="684" y="465" fill="#94A3B8" font-size="11" font-family="JetBrains Mono, monospace">Łańcuch Markowa Bo5 (11 pkt)</text>
+
+  <!-- Clean step polyline (NO glow) -->
+  <line x1="684" y1="546" x2="920" y2="546" stroke="#23324D" stroke-width="1"/>
+  <polyline points="684,538 724,522 764,530 804,504 844,492 884,484 916,478" fill="none" stroke="#10B981" stroke-width="2.5" stroke-linejoin="round"/>
+  <circle cx="916" cy="478" r="4.5" fill="#F59E0B"/>
+  <text x="684" y="568" fill="#CBD5E1" font-size="11" font-family="JetBrains Mono, monospace">P(3:1) = 29.4% | σ = 0.041</text>
+
+  <!-- Card 3: Slip & Tax Calculation (Bottom Right of Right Grid) -->
+  <rect x="956" y="416" width="236" height="172" rx="14" fill="#1B263B" stroke="#047857" stroke-width="1.4"/>
+  <text x="976" y="446" fill="#F8FAFC" font-size="13" font-weight="700">KUPON NETTO PL</text>
+  <text x="976" y="465" fill="#94A3B8" font-size="11" font-family="JetBrains Mono, monospace">AKO 3 zdarzenia</text>
+
+  <text x="976" y="498" fill="#94A3B8" font-size="11.5">Kurs brutto:</text>
+  <text x="1172" y="498" text-anchor="end" fill="#F8FAFC" font-size="13" font-weight="700" font-family="JetBrains Mono, monospace">5.07</text>
+
+  <text x="976" y="522" fill="#94A3B8" font-size="11.5">Podatek (0.88×):</text>
+  <text x="1172" y="522" text-anchor="end" fill="#CBD5E1" font-size="13" font-weight="700" font-family="JetBrains Mono, monospace">4.46</text>
+
+  <text x="976" y="546" fill="#94A3B8" font-size="11.5">Szansa wejścia:</text>
+  <text x="1172" y="546" text-anchor="end" fill="#10B981" font-size="14" font-weight="800" font-family="JetBrains Mono, monospace">26.0%</text>
+
+  <rect x="976" y="556" width="196" height="22" rx="5" fill="#064E3B"/>
+  <text x="1074" y="571" text-anchor="middle" fill="#10B981" font-size="11" font-weight="700" font-family="JetBrains Mono, monospace">EV NETTO: +11.4%</text>
+</svg>

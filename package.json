@@ -1,0 +1,23 @@
+{
+  "name": "quantkupon-monorepo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "QUANTKUPON — Pre-match sports betting quantitative analysis and coupon generator platform",
+  "packageManager": "pnpm@12.18.0",
+  "engines": {
+    "node": ">=20.0.0",
+    "pnpm": ">=9.0.0"
+  },
+  "scripts": {
+    "dev": "pnpm --filter @quantkupon/web dev",
+    "build": "pnpm --filter @quantkupon/contracts build && pnpm --filter @quantkupon/web build",
+    "lint": "pnpm -r run lint",
+    "type-check": "pnpm -r run type-check",
+    "generate:types": "pnpm --filter @quantkupon/contracts run generate:types",
+    "test": "pnpm -r run test"
+  },
+  "devDependencies": {
+    "prettier": "^3.5.3",
+    "typescript": "^5.7.3"
+  }
+}
