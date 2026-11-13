@@ -5,8 +5,10 @@ import os
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
+from src.api import api_router
+
 app = FastAPI(
-    title="QUANTKUPON API",
+    title="LeadBet API",
     version="1.0.0",
     description="Mathematical Analysis and Combinatorial Slip Optimization Service",
     docs_url="/docs",
@@ -14,7 +16,7 @@ app = FastAPI(
 )
 
 # CORS setup for Cloudflare Pages and local development
-origins_env = os.getenv("CORS_ORIGINS", "http://localhost:3000,https://quantkupon.pages.dev")
+origins_env = os.getenv("CORS_ORIGINS", "http://localhost:3000,https://leadbet.pages.dev")
 origins = [origin.strip() for origin in origins_env.split(",") if origin.strip()]
 
 app.add_middleware(
@@ -25,14 +27,16 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+app.include_router(api_router)
+
 
 @app.get("/health", tags=["System"])
 async def health_check():
     """Health check endpoint used by Render Free keep-alive and monitoring."""
-    return {"status": "ok", "service": "quantkupon-api", "version": "1.0.0"}
+    return {"status": "ok", "service": "leadbet-api", "version": "1.0.0"}
 
 
 @app.get("/api/v1/health", tags=["System"])
 async def api_health_check():
     """Versioned health check endpoint."""
-    return {"status": "ok", "service": "quantkupon-api", "version": "1.0.0"}
+    return {"status": "ok", "service": "leadbet-api", "version": "1.0.0"}

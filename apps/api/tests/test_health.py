@@ -16,7 +16,7 @@ async def test_health_check():
         assert response.status_code == 200
         data = response.json()
         assert data["status"] == "ok"
-        assert data["service"] == "quantkupon-api"
+        assert data["service"] == "leadbet-api"
         assert data["version"] == "1.0.0"
 
 
@@ -29,4 +29,4 @@ async def test_api_v1_health_check():
         assert response.status_code == 200
         data = response.json()
         assert data["status"] == "ok"
-        assert data["service"] == "quantkupon-api"
+        assert data["service"] == "leadbet-api"
