@@ -523,69 +523,50 @@ export default function DashboardPage() {
               </p>
             </div>
           ) : (
-            <div className="space-y-4">
+            <div className="rounded-lg border border-border-hairline bg-surface-slate divide-y divide-border-hairline">
               {filteredEvents.map((ev) => {
-                const maxEvFormatted = formatEv(ev.max_ev_net);
                 return (
-                  <article
-                    key={ev.id}
-                    className="rounded-xl border border-border-hairline bg-surface-slate overflow-hidden transition-colors hover:border-border-hairline/90"
-                  >
-                    {/* Event Card Header */}
-                    <div className="px-4 py-3 bg-surface-elevated/60 border-b border-border-hairline flex flex-wrap items-center justify-between gap-2">
-                      <div className="flex items-center gap-2 text-xs">
-                        <span className="px-2 py-0.5 rounded bg-canvas-midnight text-signal-emerald font-mono font-semibold border border-signal-emerald/20">
+                  <article key={ev.id} className="p-4 space-y-3">
+                    <div className="flex flex-wrap items-center justify-between gap-2 text-xs">
+                      <div className="flex flex-wrap items-center gap-x-2 gap-y-0.5 text-text-muted">
+                        <span className="font-medium text-text-secondary">
                           {ev.sport_name_pl}
                         </span>
-                        <span className="text-text-secondary font-medium">
-                          {ev.league_name}
-                        </span>
+                        <span>·</span>
+                        <span>{ev.league_name}</span>
                         {ev.surface_or_format && (
-                          <span className="text-text-muted font-mono text-[11px]">
+                          <span className="text-text-muted/80">
                             ({ev.surface_or_format})
                           </span>
                         )}
+                        <span>·</span>
+                        <span className="font-mono tabular-nums">
+                          {ev.start_time_utc.replace("T", " ").replace(":00Z", " UTC")}
+                        </span>
                       </div>
 
-                      <div className="flex items-center gap-3">
-                        <span
-                          className={`text-xs font-mono font-semibold tabular-nums px-2 py-0.5 rounded ${
-                            maxEvFormatted.isPositive
-                              ? "bg-signal-emerald/15 text-signal-emerald border border-signal-emerald/30"
-                              : "bg-semantic-loss/15 text-semantic-loss border border-semantic-loss/30"
-                          }`}
-                        >
-                          Max EV: {maxEvFormatted.text}
-                        </span>
-                        <Link
-                          href={`/events/${ev.id}`}
-                          className="text-xs font-mono font-semibold text-signal-emerald hover:underline flex items-center gap-1"
-                        >
-                          <span>Breakdown meczu</span>
-                          <span>→</span>
-                        </Link>
-                      </div>
+                      <Link
+                        href={`/events/${ev.id}`}
+                        className="text-xs font-medium text-brand-sky hover:underline shrink-0"
+                      >
+                        Analiza →
+                      </Link>
                     </div>
 
-                    {/* Teams & Start Time */}
-                    <div className="p-4 space-y-4">
-                      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-                        <div>
-                          <h3 className="text-base font-bold text-text-primary">
-                            <Link
-                              href={`/events/${ev.id}`}
-                              className="hover:text-signal-emerald transition-colors"
-                            >
-                              {ev.home_team} <span className="text-text-muted font-normal">vs</span>{" "}
-                              {ev.away_team}
-                            </Link>
-                          </h3>
-                          <p className="text-xs text-text-muted font-mono tabular-nums">
-                            Start UTC: {ev.start_time_utc.replace("T", " ").replace("Z", " UTC")} • Rynek:{" "}
-                            {ev.primary_market.market_label}
-                          </p>
-                        </div>
-                      </div>
+                    <div className="flex flex-wrap items-baseline justify-between gap-2">
+                      <h3 className="text-sm sm:text-base font-semibold text-text-primary">
+                        <Link
+                          href={`/events/${ev.id}`}
+                          className="hover:text-brand-sky transition-colors duration-150"
+                        >
+                          {ev.home_team} <span className="text-text-muted font-normal">vs</span>{" "}
+                          {ev.away_team}
+                        </Link>
+                      </h3>
+                      <span className="text-[11px] text-text-muted">
+                        {ev.primary_market.market_label}
+                      </span>
+                    </div>
 
                       {/* Mobile Outcomes Card List (< sm) */}
                       <div className="sm:hidden space-y-2">
@@ -650,7 +631,7 @@ export default function DashboardPage() {
                       </div>
 
                       {/* Desktop Outcomes Mathematical Table (>= sm) */}
-                      <div className="hidden sm:block overflow-x-auto rounded-lg border border-border-hairline bg-canvas-midnight">
+                      <div className="hidden sm:block overflow-x-auto">
                         <table className="w-full text-left border-collapse text-xs font-mono tabular-nums">
                           <thead>
                             <tr className="border-b border-border-hairline text-text-muted bg-surface-elevated/40">
@@ -742,7 +723,6 @@ export default function DashboardPage() {
                           </tbody>
                         </table>
                       </div>
-                    </div>
                   </article>
                 );
               })}
@@ -979,13 +959,12 @@ export default function DashboardPage() {
               </button>
             </form>
 
-            {solverMeta && (
-              <div className="pt-2 border-t border-border-hairline flex items-center justify-between text-[11px] font-mono text-text-muted tabular-nums">
-                <span>Pula: {solverMeta.poolSize} selekcji</span>
-                <span>{solverMeta.algorithm}</span>
-                <span>{solverMeta.elapsedMs.toFixed(1)} ms</span>
-              </div>
-            )}
+            <div className="pt-2 border-t border-border-hairline flex items-center justify-between text-[11px] text-text-muted">
+              <span>Wersja darmowa: analiza pre-match</span>
+              <Link href="/cennik" className="text-brand-sky hover:underline font-medium">
+                LeadBet Pro →
+              </Link>
+            </div>
 
             {/* Proposal Switcher if multiple proposals returned */}
             {proposals.length > 1 && (
@@ -1015,18 +994,18 @@ export default function DashboardPage() {
           </div>
 
           {/* Active Evaluated Slip Card with 1-Click Polish Odds Override & PIT 10% SplitAdvice */}
-          <div className="rounded-xl border border-border-hairline bg-surface-slate p-5 space-y-5">
+          <div className="rounded-lg border border-border-hairline bg-surface-slate p-5 space-y-5">
             <div className="flex items-center justify-between border-b border-border-hairline pb-3">
               <div>
                 <h3 className="text-base font-bold text-text-primary">
-                  Karta Kuponu Matematycznego
+                  Aktywny kupon
                 </h3>
                 <p className="text-xs text-text-muted">
-                  1-klik nadpisanie kursu PL przelicza podatek i EV w czasie rzeczywistym
+                  Zmiana kursu przelicza podatek i EV na żywo
                 </p>
               </div>
               {evaluating && (
-                <span className="text-[11px] font-mono text-signal-emerald">
+                <span className="text-[11px] font-mono text-brand-sky">
                   Przeliczanie...
                 </span>
               )}
@@ -1035,18 +1014,18 @@ export default function DashboardPage() {
             {!activeSlip || activeSlip.selections.length === 0 ? (
               <div className="py-8 text-center text-xs text-text-muted space-y-2">
                 <p>Brak wybranych pozycji na kuponie.</p>
-                <p>Kliknij „GENERUJ KUPON MATEMATYCZNY” lub dodaj typ z tabeli meczów.</p>
+                <p>Kliknij „Generuj kupon” lub dodaj typ z listy meczów.</p>
               </div>
             ) : (
               <>
                 {/* Legs with 1-click Polish odds override */}
-                <div className="space-y-3">
+                <div className="divide-y divide-border-hairline border border-border-hairline rounded-lg bg-canvas-midnight">
                   {activeSlip.selections.map((sel, idx) => {
                     const legEv = formatEv(sel.ev_net);
                     return (
                       <div
                         key={`${sel.event_id}:${sel.market_key}:${sel.outcome_key}`}
-                        className="rounded-lg border border-border-hairline bg-canvas-midnight p-3 space-y-2"
+                        className="p-3 space-y-2"
                       >
                         <div className="flex items-start justify-between gap-2">
                           <div>

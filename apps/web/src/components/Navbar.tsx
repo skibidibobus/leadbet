@@ -7,7 +7,8 @@ import { usePathname } from "next/navigation";
 const NAV_ITEMS = [
   { href: "/", label: "Pulpit" },
   { href: "/kalibracja", label: "Kalibracja" },
-  { href: "/kupony", label: "Moje Kupony" },
+  { href: "/kupony", label: "Kupony" },
+  { href: "/cennik", label: "Cennik" },
 ] as const;
 
 export function Navbar() {
