@@ -21,20 +21,24 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9
+
       - name: Set up Node.js 20
         uses: actions/setup-node@v4
         with:
           node-version: "20"
+          cache: "pnpm"
 
-      - name: Install frontend dependencies
-        working-directory: apps/web
-        run: npm install --legacy-peer-deps
+      - name: Install workspace dependencies
+        run: pnpm install --frozen-lockfile
 
       - name: Build static export for GitHub Pages
-        working-directory: apps/web
         env:
           GITHUB_PAGES: "true"
-        run: npm run build
+        run: pnpm --filter @quantkupon/web build
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
