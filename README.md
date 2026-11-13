@@ -1,23 +1,59 @@
 # LeadBet
 
-Narzędzie analityczne **pre-match** do porównywania prawdopodobieństw modeli sportowych z rynkiem referencyjnym (de-vigging Shina), optymalizacji kuponów z blokadą korelacji oraz kalkulacji polskich podatków bukmacherskich (12% podatek obrotowy `0.88×`, promocje `1.00×` oraz 10% PIT powyżej `2280.00 PLN`).
+**Pre-match Quantitative Odds Analyzer, Combinatorial Slip Optimizer & Polish Tax Engine**
 
-**Podgląd online (GitHub Pages):** https://skibidibobus.github.io/leadbet/
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-GitHub%20Pages-2563EB?style=flat-square)](https://skibidibobus.github.io/leadbet/)
+[![FastAPI](https://img.shields.io/badge/Backend-FastAPI%20%2B%20Python-0F172A?style=flat-square)](apps/api)
+[![Next.js](https://img.shields.io/badge/Frontend-Next.js%2015%20%2B%20TypeScript-0F172A?style=flat-square)](apps/web)
+[![License: MIT](https://img.shields.io/badge/License-MIT-334155?style=flat-square)](LICENSE)
 
----
-
-## Zakres i architektura
-
-- **`apps/web`** — Frontend Next.js 15 (App Router, React 19, Tailwind CSS), w trybie statycznym działa w pełni offline na wbudowanym zestawie danych lub łączy się z API przez `NEXT_PUBLIC_API_URL`.
-- **`apps/api`** — Backend FastAPI (`/api/v1/categories`, `/events`, `/events/{id}/breakdown`, `/slips/generate`, `/slips/evaluate`, `/slips/saved`, `/calibration/metrics`) oraz skrypt cykliczny `cron_ingest.py` (2×/dzień pre-match).
-- **`packages/quant-engine`** — Modele probabilistyczne (Dixon-Coles, Pace ORtg/DRtg, Surface Markov Elo, Skellam 60m), de-vigging Shina/Power, fuzja bayesowska, ułamkowy Kelly (`0.25×`, limit `5%`) i optymalizator wiązkowy z Anti-Correlation Guard.
-- **`packages/bookmaker-adapters`** — Polski silnik podatkowy (`PolishTaxEngine` z progami `2280.00 PLN` i `SplitAdvice`) oraz adaptery źródeł pre-match (`SnapshotFixtureAdapter`, `TheOddsApiAdapter`).
+**Live Demo:** https://skibidibobus.github.io/leadbet/
 
 ---
 
-## Uruchomienie lokalne
+## Overview
 
-### 1. Backend (FastAPI, port `8000`)
+**LeadBet** is a full-stack, pre-match sports analytics platform built as a TypeScript + Python monorepo. It compares statistical sport-model probabilities (`p_model`) against de-vigged sharp market benchmarks (`p_sharp`), fuses them via Bayesian weighting (`p_true`), and solves for optimal multi-leg combinations while factoring in **Polish statutory betting taxation** (12% turnover tax `0.88×`, promotional `1.00×` exemptions, and 10% PIT threshold above `2280.00 PLN` with automated ticket-splitting advice).
+
+The system is architected for **0 PLN infrastructure cost**: pre-match odds refresh runs 2×/day via GitHub Actions, the FastAPI engine serves validated JSON endpoints, and the Next.js App Router frontend builds as a static export on GitHub Pages with deterministic offline fallback.
+
+---
+
+## Key Engineering Highlights
+
+- **Quantitative Modeling Engine (`packages/quant-engine`):**
+  - Sport-specific pre-match models: **Dixon-Coles** (Football), **Pace / ORtg–DRtg** (Basketball), **Surface Markov Elo** (Tennis), **Skellam 60m** (Ice Hockey).
+  - **Shin & Power De-vigging** to strip bookmaker overround from reference odds.
+  - **Bayesian Probability Fusion** combining model priors and sharp market consensus.
+  - **Beam-Search Combinatorial Optimizer** maximizing joint probability $P(\text{slip})$ within target odds bounds, enforcing an **Anti-Correlation Guard** (max 1 leg per `event_id`) and **Quarter-Kelly (`0.25×`, 5% cap)** sizing.
+  - **Model Calibration Audit:** Brier Score, Brier Skill Score, Log-Loss, Expected Calibration Error (ECE), and Closing Line Value (CLV) reliability bins.
+- **Polish Tax & Promo Engine (`packages/bookmaker-adapters`):**
+  - Exact evaluation of `standard_088` (`0.88×`), `betclic_tax_free` (`>= 2` legs, `>= 1.20`), `fortuna_promo` (`>= 3` legs, `>= 1.30`), and `superbet_boost` (`>= 3` legs, `>= 1.25`).
+  - Automatic detection of the `2280.00 PLN` 10% PIT threshold with optimal `SplitAdvice` ticket-splitting calculation.
+- **Responsive Product UI & SaaS Architecture (`apps/web`):**
+  - Next.js 15 App Router + React 19 + TypeScript + Tailwind CSS.
+  - Mobile-first outcome cards, sticky quick-jump slip bar, real-time 1-click odds override (`POST /api/v1/slips/evaluate`), SVG calibration charts, and `/cennik` SaaS tiering.
+- **Automated CI/CD & Ingestion (`.github/workflows`):**
+  - `deploy_pages.yml`: `pnpm` monorepo static export (`output: "export"`) deployed to GitHub Pages on push to `main`.
+  - `ingest_prematch.yml`: Scheduled 2×/day (`08:00` & `16:00 UTC`) pre-match ingestion pipeline.
+
+---
+
+## Monorepo Architecture
+
+| Package / App | Stack | Responsibility |
+|---|---|---|
+| `apps/web` | Next.js 15, React 19, TypeScript, Tailwind | Responsive dashboard, match breakdown, calibration charts, saved slips, `/cennik` |
+| `apps/api` | FastAPI, Pydantic v2, Uvicorn | REST API (`/api/v1/*`), CORS allowlisting, pre-match `cron_ingest.py` |
+| `packages/quant-engine` | Python, NumPy, SciPy | Sport models, Shin de-vigging, Bayesian fusion, Kelly sizing, Beam-Search optimizer |
+| `packages/bookmaker-adapters` | Python, Pydantic, HTTPX | Polish tax/PIT engine (`PolishTaxEngine`), fixture & The Odds API adapters |
+| `packages/contracts` | OpenAPI 3.1, PostgreSQL DDL, TypeScript | Shared API contracts and Neon PostgreSQL schema |
+
+---
+
+## Local Setup & Verification
+
+### Backend & Quantitative Engine
 
 ```bash
 python3 -m venv .venv
@@ -25,36 +61,33 @@ source .venv/bin/activate
 pip install -e packages/quant-engine -e packages/bookmaker-adapters
 pip install fastapi uvicorn httpx pytest pydantic
 
+# Run unit & API integration tests
+PYTHONPATH=apps/api:packages/quant-engine:packages/bookmaker-adapters \
+  pytest packages/ apps/api/ -v
+
+# Start FastAPI server (port 8000)
 PYTHONPATH=apps/api:packages/quant-engine:packages/bookmaker-adapters \
   uvicorn src.main:app --reload --port 8000
 ```
 
-### 2. Frontend (Next.js, port `3000`)
+### Frontend
 
 ```bash
-cd apps/web
-npm install
-npm run dev
-```
-
-### 3. Testy
-
-```bash
-PYTHONPATH=apps/api:packages/quant-engine:packages/bookmaker-adapters pytest packages/ apps/api/ -v
-cd apps/web && npm run type-check && npm run build
+pnpm install --frozen-lockfile
+pnpm --filter @quantkupon/web type-check
+pnpm --filter @quantkupon/web dev
 ```
 
 ---
 
-## Bezpieczeństwo i zgodność z prawem w Polsce
+## Compliance & Security
 
-- **Charakter wyłącznie analityczny:** LeadBet nie przyjmuje zakładów wzajemnych, nie obsługuje płatności ani depozytów i nie publikuje zachęt do gry ani linków afiliacyjnych.
-- **Brak promocji nielicencjonowanych podmiotów:** Zewnętrzne kursy referencyjne służą wyłącznie do estymacji matematycznego prawdopodobieństwa (`p_sharp`), natomiast symulacje podatku obrotowego (`0.88×` / `1.00×`) i PIT (`10% > 2280 PLN`) odnoszą się do polskich przepisów podatkowych.
-- **Przeznaczenie 18+ i RODO:** Interfejs zawiera jawne oznaczenie `18+` oraz informację o ryzyku związanym z zakładami bukmacherskimi.
-- **Brak sekretów w repozytorium:** Wszystkie klucze (`THE_ODDS_API_KEY`, `DATABASE_URL`) przekazywane są wyłącznie przez zmienne środowiskowe (`.env.example`).
+- **Analytical Scope Only:** LeadBet does not accept bets, process payments, or publish betting recommendations or affiliate links.
+- **Regulatory Alignment:** Designed for 18+ users with RODO/GDPR notice and statutory Polish tax transparency.
+- **Security:** Zero hardcoded secrets (`.env.example` template only), explicit `CORS_ORIGINS` allowlist, and strict Pydantic input validation. See [SECURITY.md](SECURITY.md).
 
 ---
 
-## Licencja
+## License
 
 [MIT](LICENSE)
