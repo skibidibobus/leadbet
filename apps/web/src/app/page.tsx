@@ -495,14 +495,23 @@ export default function DashboardPage() {
                 Kliknij dowolny kurs, aby dodać lub usunąć zdarzenie z kuponu, lub przejdź do pełnego rozkładu meczu.
               </p>
             </div>
-            <span className="text-xs font-mono text-text-muted tabular-nums">
-              Liczba meczów: {filteredEvents.length}
+            <span className="text-xs text-text-muted tabular-nums">
+              Mecze: <span className="font-mono font-medium text-text-primary">{filteredEvents.length}</span>
             </span>
           </div>
 
           {loadingEvents ? (
-            <div className="rounded-xl border border-border-hairline bg-surface-slate p-8 text-center text-sm text-text-muted font-mono">
-              Ładowanie danych LeadBet...
+            <div className="space-y-4" aria-label="Ładowanie zdarzeń">
+              {[0, 1, 2].map((idx) => (
+                <div
+                  key={idx}
+                  className="rounded-xl border border-border-hairline bg-surface-slate p-4 space-y-3 animate-pulse"
+                >
+                  <div className="h-4 w-48 rounded bg-surface-elevated" />
+                  <div className="h-10 w-full rounded bg-canvas-midnight" />
+                  <div className="h-10 w-full rounded bg-canvas-midnight" />
+                </div>
+              ))}
             </div>
           ) : filteredEvents.length === 0 ? (
             <div className="rounded-xl border border-border-hairline bg-surface-slate p-8 text-center space-y-2">
@@ -745,18 +754,13 @@ export default function DashboardPage() {
         <aside id="kupon-panel" className="lg:col-span-5 space-y-6 scroll-mt-20">
           {/* Combinatorial Slip Generator Panel */}
           <div className="rounded-xl border border-border-hairline bg-surface-slate p-5 space-y-5">
-            <div className="flex items-center justify-between border-b border-border-hairline pb-3">
-              <div>
-                <h2 className="text-base font-bold text-text-primary">
-                  Kombinatoryczny Generator Kuponu
-                </h2>
-                <p className="text-xs text-text-muted">
-                  Algorytm Beam-Search maksymalizujący P(kupon) z blokadą korelacji
-                </p>
-              </div>
-              <span className="text-[11px] font-mono px-2 py-0.5 rounded bg-canvas-midnight text-alpha-amber border border-alpha-amber/30">
-                SOLVER v1
-              </span>
+            <div className="border-b border-border-hairline pb-3">
+              <h2 className="text-base font-bold text-text-primary">
+                Generator kuponu
+              </h2>
+              <p className="text-xs text-text-muted">
+                Maksymalizacja P(kupon) w zadanym zakresie kursów (maks. 1 typ z meczu)
+              </p>
             </div>
 
             <form onSubmit={handleGenerateSlips} className="space-y-4 text-xs">
@@ -963,16 +967,15 @@ export default function DashboardPage() {
                 </span>
               </label>
 
-              {/* CTA Button (#F59E0B alpha-amber per 60-30-10 rule) */}
+              {/* Primary CTA Button (LeadBet Brand Blue) */}
               <button
                 type="submit"
                 disabled={generating}
-                className="w-full py-3 px-4 rounded-lg bg-alpha-amber hover:bg-alpha-amber-dark text-canvas-obsidian font-extrabold text-sm tracking-wide transition-colors flex items-center justify-center gap-2 shadow-md disabled:opacity-50"
+                className="w-full py-2.5 px-4 rounded-lg bg-brand-blue hover:bg-brand-blue-dark text-white font-semibold text-sm transition-colors duration-150 flex items-center justify-center gap-2 disabled:opacity-50"
               >
                 <span>
-                  {generating ? "OPTYMALIZACJA BEAM-SEARCH..." : "GENERUJ KUPON MATEMATYCZNY"}
+                  {generating ? "Obliczanie kuponu..." : "Generuj kupon"}
                 </span>
-                <span className="font-mono">→</span>
               </button>
             </form>
 
@@ -1290,20 +1293,20 @@ export default function DashboardPage() {
       <div className="lg:hidden fixed bottom-3 inset-x-3 z-40">
         <a
           href="#kupon-panel"
-          className="flex items-center justify-between gap-3 rounded-xl border border-signal-emerald/40 bg-surface-slate/95 backdrop-blur-md px-4 py-3 shadow-lg"
+          className="flex items-center justify-between gap-3 rounded-xl border border-brand-blue/60 bg-surface-slate/95 backdrop-blur-md px-4 py-3 shadow-lg"
         >
           <div className="font-mono text-xs tabular-nums">
-            <span className="text-text-muted">Kupon: </span>
+            <span className="text-text-muted font-sans">Kupon: </span>
             <span className="font-bold text-text-primary">
               {activeSlip?.selections.length ?? 0} zdarz.
             </span>
             {activeSlip && activeSlip.selections.length > 0 && (
-              <span className="text-alpha-amber font-bold ml-2">
+              <span className="text-brand-sky font-bold ml-2">
                 AKO {activeSlip.total_odds_gross.toFixed(2)}
               </span>
             )}
           </div>
-          <span className="text-xs font-semibold text-signal-emerald font-mono">
+          <span className="text-xs font-semibold text-brand-sky">
             Przejdź do kuponu ↓
           </span>
         </a>

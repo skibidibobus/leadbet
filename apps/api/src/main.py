@@ -30,6 +30,17 @@ app.add_middleware(
 app.include_router(api_router)
 
 
+@app.get("/", tags=["System"])
+async def root_info():
+    """Root service metadata endpoint."""
+    return {
+        "service": "leadbet-api",
+        "version": "1.0.0",
+        "docs": "/docs",
+        "health": "/health",
+    }
+
+
 @app.get("/health", tags=["System"])
 async def health_check():
     """Health check endpoint used by Render Free keep-alive and monitoring."""

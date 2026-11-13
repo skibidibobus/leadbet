@@ -18,7 +18,11 @@ const config: Config = {
         "border-hairline": "#23324D",
         "quant-teal": "#0D9488",
         "quant-teal-dark": "#047857",
-        // 10% Accent
+        // LeadBet Brand Blue (echoing LeadWeb)
+        "brand-sky": "#38BDF8",
+        "brand-blue": "#2563EB",
+        "brand-blue-dark": "#1D4ED8",
+        // 10% Semantic Accent
         "signal-emerald": "#10B981",
         "signal-emerald-dark": "#059669",
         "alpha-amber": "#F59E0B",

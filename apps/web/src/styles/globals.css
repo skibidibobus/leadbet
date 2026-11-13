@@ -5,6 +5,9 @@
 :root {
   --background: #0B0F19;
   --foreground: #F8FAFC;
+  --brand-sky: #38BDF8;
+  --brand-blue: #2563EB;
+  color-scheme: dark;
 }
 
 body {
@@ -12,6 +15,42 @@ body {
   color: var(--foreground);
   font-family: var(--font-sans), Inter, system-ui, sans-serif;
   min-height: 100vh;
+  caret-color: var(--brand-sky);
+  text-underline-offset: 3px;
+}
+
+::selection {
+  background-color: rgba(37, 99, 235, 0.35);
+  color: #F8FAFC;
+}
+
+:focus-visible {
+  outline: 2px solid var(--brand-sky);
+  outline-offset: 2px;
+}
+
+/* Subtle dark scrollbar matching the surface palette */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #23324D #0B0F19;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0B0F19;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #23324D;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #334155;
 }
 
 /* Strict vertical column alignment for odds, payouts, and probabilities */
